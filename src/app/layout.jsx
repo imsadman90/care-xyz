@@ -11,32 +11,34 @@ const poppins = Poppins({
 });
 
 export const metadata = {
-  metadataBase: new URL("https://hero-kidz.vercel.app"),
+  metadataBase: new URL("https://care-xyz.vercel.app"),
 
   title: {
-    default: "HeroKidz | Smart Learning Toys for Kids",
-    template: "%s | HeroKidz",
+    default: "Care-xyz | Care Giving Motivation",
+    template: "%s | Care-xyz",
   },
 
   description:
-    "HeroKidz brings safe, colorful, and educational toys that help children learn numbers, logic, and creativity through joyful play.",
+    "Care-xyz is dedicated to providing motivation, resources, and support for caregivers and those seeking care solutions. Empowering care, compassion, and community.",
 
-  applicationName: "HeroKidz",
+  applicationName: "Care-xyz",
 
   keywords: [
-    "learning toys",
-    "educational toys for kids",
-    "kids math toys",
-    "preschool learning toys",
-    "montessori toys",
-    "early childhood learning",
-    "number learning toys",
-    "kids educational board",
+    "caregiving",
+    "care motivation",
+    "care resources",
+    "care support",
+    "elder care",
+    "child care",
+    "community care",
+    "care solutions",
+    "caregiver help",
+    "compassionate care",
   ],
 
-  authors: [{ name: "HeroKidz Team" }],
-  creator: "HeroKidz",
-  publisher: "HeroKidz",
+  authors: [{ name: "Care-xyz Team" }],
+  creator: "Care-xyz",
+  publisher: "Care-xyz",
 
   robots: {
     index: true,
@@ -51,37 +53,36 @@ export const metadata = {
   },
 
   icons: {
-    icon: "https://i.ibb.co.com/ynq5sbpL/image.png",
-    apple: "https://i.ibb.co.com/ynq5sbpL/image.png",
+    icon: "https://w7.pngwing.com/pngs/634/413/png-transparent-family-caregivers-disability-symbol-love-miscellaneous-heart-thumbnail.png",
   },
 
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://www.HeroKidz.com",
-    siteName: "HeroKidz",
-    title: "HeroKidz | Smart Learning Toys for Kids",
+    url: "https://www.care-xyz.com",
+    siteName: "Care-xyz",
+    title: "Care-xyz | Care Giving Motivation & Support",
     description:
-      "Discover colorful and safe learning toys designed to develop kids’ math skills, creativity, and confidence.",
+      "Discover resources, motivation, and a supportive community for caregivers and those seeking care solutions. Empowering care and compassion.",
     images: [
       {
         url: "https://i.ibb.co.com/WN7WK6w5/image.png",
         width: 1200,
         height: 630,
-        alt: "HeroKidz Homepage Preview",
+        alt: "Care-xyz Homepage Preview",
       },
     ],
   },
 
   twitter: {
     card: "summary_large_image",
-    title: "HeroKidz | Smart Learning Toys for Kids",
+    title: "Care-xyz | Care Giving Motivation & Support",
     description:
-      "Safe and educational toys to help children learn through play.",
+      "Motivation, resources, and support for caregivers and care seekers.",
     images: ["https://i.ibb.co.com/WN7WK6w5/image.png"],
   },
 
-  category: "education",
+  category: "caregiving",
 };
 
 export default function RootLayout({ children }) {

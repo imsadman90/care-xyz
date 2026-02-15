@@ -21,13 +21,13 @@ const CartButton = ({ service }) => {
       if (result.success) {
         Swal.fire({
           title: "Added to Cart",
-          text: `${service.title} কার্টে যুক্ত করা হয়েছে`,
+          text: `${service.title} added to cart`,
           icon: "success",
           showCancelButton: true,
           confirmButtonColor: "#3085d6",
           cancelButtonColor: "#d33",
-          cancelButtonText: "আরো কিনতে চাই",
-          confirmButtonText: "চেকআউট করুন",
+          cancelButtonText: "Want to buy more",
+          confirmButtonText: "Check Please",
         }).then((res) => {
           if (res.isConfirmed) router.push("/cart");
         });
