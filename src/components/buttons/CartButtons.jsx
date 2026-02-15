@@ -47,7 +47,7 @@ const CartButton = ({ service }) => {
       <button
         disabled={session.status == "loading" || isLoading}
         onClick={handleAdd2Cart}
-        className="btn bg-purple-500 text-white w-full flex gap-2"
+        className="btn bg-gradient-to-r from-purple-600 via-violet-600 to-fuchsia-600 text-white w-full flex gap-2 rounded-full"
       >
         <FaCartPlus />
         Add to Cart

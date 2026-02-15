@@ -96,7 +96,7 @@ const CartItem = ({ item, removeItem, updateQuantity }) => {
         </h3>
         <p className="text-xs text-gray-500 mb-2">
           Unit Price:{" "}
-          <span className="font-medium text-purple-700">Taka {price}</span>
+          <span className="font-medium text-purple-700">Taka : {price}</span>
         </p>
 
         {/* Quantity controls */}
@@ -128,7 +128,7 @@ const CartItem = ({ item, removeItem, updateQuantity }) => {
       {/* Total + Remove */}
       <div className="text-right space-y-3 min-w-[90px]">
         <p className="font-bold text-lg text-purple-800">
-          ৳ {price * quantity}
+          Taka : {price * quantity}
         </p>
 
         <button

@@ -70,7 +70,7 @@ export const adminOrderNotificationTemplate = ({
                     <tr>
                       <td>${item.title}</td>
                       <td align="center">${item.quantity}</td>
-                      <td align="right">৳${item.price}</td>
+                      <td align="right">Taka : ${item.price}</td>
                     </tr>
                   `,
                     )
@@ -83,7 +83,7 @@ export const adminOrderNotificationTemplate = ({
           <!-- Total -->
           <tr>
             <td align="right" style="padding-top:15px;">
-              <h3>Total Amount: ৳${totalPrice}</h3>
+              <h3>Total Amount: Taka : ${totalPrice}</h3>
             </td>
           </tr>
 

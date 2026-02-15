@@ -245,7 +245,7 @@ const CheckOut = ({ cartItems = [] }) => {
           <button
             disabled={cartItems.length == 0 || loading}
             type="submit"
-            className="btn bg-purple-500 text-white w-full mt-4"
+            className="btn bg-gradient-to-r from-purple-600 via-violet-600 to-fuchsia-600 text-white w-full mt-4"
           >
             Confirm & Place Order
           </button>
@@ -261,10 +261,12 @@ const CheckOut = ({ cartItems = [] }) => {
               <div>
                 <p className="font-medium">{item.title}</p>
                 <p className="text-xs text-gray-500">
-                  Qty: {item.quantity} × ৳{item.price}
+                  Qty: {item.quantity} × Taka : {item.price}
                 </p>
               </div>
-              <p className="font-semibold">৳{item.quantity * item.price}</p>
+              <p className="font-semibold">
+                Taka : {item.quantity * item.price}
+              </p>
             </div>
           ))}
 
@@ -272,7 +274,7 @@ const CheckOut = ({ cartItems = [] }) => {
 
           <div className="flex justify-between font-bold text-lg">
             <span>Total ({totalItems} items)</span>
-            <span>৳{totalPrice.toLocaleString()}</span>
+            <span>Taka : {totalPrice.toLocaleString()}</span>
           </div>
         </div>
       </div>

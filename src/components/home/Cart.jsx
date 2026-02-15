@@ -6,7 +6,7 @@ import Link from "next/link";
 
 const Cart = ({ cartItem = [] }) => {
   const [items, setItems] = useState(cartItem);
-console.log(items);
+  console.log(items);
 
   const totalItems = useMemo(
     () => items.reduce((sum, item) => sum + item.quantity, 0),
@@ -58,10 +58,12 @@ console.log(items);
                 <div>
                   <p className="font-medium">{item.title}</p>
                   <p className="text-xs text-gray-500">
-                    Qty: {item.quantity} × ৳{item.price}
+                    Qty: {item.quantity} × Taka : {item.price}
                   </p>
                 </div>
-                <p className="font-semibold">৳{item.price * item.quantity}</p>
+                <p className="font-semibold">
+                  Taka : {item.price * item.quantity}
+                </p>
               </div>
             ))}
           </div>
@@ -75,13 +77,13 @@ console.log(items);
             </div>
             <div className="flex justify-between font-bold text-lg">
               <span>Total Price</span>
-              <span>৳{totalPrice}</span>
+              <span>Taka : {totalPrice}</span>
             </div>
           </div>
 
           <Link
             href={"/checkout"}
-            className="btn bg-purple-500 text-white w-full mt-4"
+            className="btn bg-gradient-to-r from-purple-600 via-violet-600 to-fuchsia-600 text-white w-full mt-4"
             disabled={!items.length}
           >
             Confirm Order

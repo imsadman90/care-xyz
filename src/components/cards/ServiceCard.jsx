@@ -37,7 +37,7 @@ const ServiceCard = ({ service }) => {
           )}
 
           {/* Hover Accent Line */}
-          <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-emerald-500 via-teal-500 to-cyan-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
+          <div className="" />
         </div>
 
         {/* Content Section */}
@@ -81,7 +81,7 @@ const ServiceCard = ({ service }) => {
             {/* View Details Link */}
             <Link
               href={`/services/${_id}`}
-              className="group/link relative w-full text-center px-5 py-2.5 text-sm font-semibold text-slate-700 bg-white border-2 border-slate-200 rounded-xl overflow-hidden transition-all duration-300 hover:border-slate-300 hover:shadow-md hover:-translate-y-0.5"
+              className="group/link relative w-full text-center px-5 py-2.5 text-sm font-semibold text-slate-700 bg-white border-2 border-slate-200 rounded-full overflow-hidden transition-all duration-300 hover:border-slate-300 hover:shadow-md hover:-translate-y-0.5"
             >
               {/* Animated Background */}
               <span className="absolute inset-0 bg-gradient-to-r from-emerald-50 via-teal-50 to-cyan-50 transform -translate-x-full group-hover/link:translate-x-0 transition-transform duration-500 ease-out" />

@@ -123,7 +123,7 @@ const MyBookingPage = () => {
                       .join(", ")}
                   </td>
                   <td className="px-4 py-3 font-bold text-purple-700 whitespace-nowrap">
-                    ৳{order.totalPrice?.toLocaleString()}
+                    Taka : {order.totalPrice?.toLocaleString()}
                   </td>
                   <td className="px-4 py-3">
                     <span

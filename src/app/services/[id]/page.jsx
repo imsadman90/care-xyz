@@ -335,23 +335,6 @@ const ServiceDetails = async ({ params }) => {
             </div>
           </div>
         </div>
-
-        {/* Bottom CTA */}
-        <div className="mt-12 p-8 bg-gradient-to-r from-emerald-500 via-teal-500 to-cyan-500 rounded-2xl shadow-xl text-white">
-          <div className="max-w-3xl mx-auto text-center space-y-4">
-            <h3 className="text-2xl md:text-3xl font-bold">
-              Ready to get started?
-            </h3>
-            <p className="text-emerald-50">
-              Join thousands of satisfied customers who trust our services.
-            </p>
-            <div className="pt-4">
-              <CartButton
-                service={{ ...service, _id: service._id.toString() }}
-              />
-            </div>
-          </div>
-        </div>
       </section>
     </div>
   );
