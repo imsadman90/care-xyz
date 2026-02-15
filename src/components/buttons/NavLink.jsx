@@ -5,7 +5,10 @@ import React from "react";
 
 const NavLink = ({ href, children }) => {
   const path = usePathname();
-  const isActive = href === "/" ? path === href : path.startsWith(href);
+  const isActive =
+    href === "/"
+      ? path === href
+      : typeof path === "string" && path.startsWith(href);
   return (
     <Link
       href={href}

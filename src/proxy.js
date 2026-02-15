@@ -7,9 +7,9 @@ export async function proxy(req) {
   const token = await getToken({ req, secret: process.env.NEXTAUTH_SECRET });
   const isAuthenticated = Boolean(token);
   const reqPath = req.nextUrl.pathname;
-  const isPrivateReq = privateRoute.some((route) =>
-    req.nextUrl.pathname.startsWith(route),
-  );
+  const isPrivateReq =
+    typeof req.nextUrl?.pathname === "string" &&
+    privateRoute.some((route) => req.nextUrl.pathname.startsWith(route));
 
   if (!isAuthenticated && isPrivateReq) {
     return NextResponse.redirect(
