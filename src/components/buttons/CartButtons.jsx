@@ -21,17 +21,17 @@ const CartButton = ({ service }) => {
       if (result.success) {
         Swal.fire({
           title: "Added to Cart",
-          text: `${service.title} added to cart`,
+          text: `${service.title} Service Booked`,
           icon: "success",
           showCancelButton: true,
           confirmButtonColor: "#3085d6",
           cancelButtonColor: "#d33",
           cancelButtonText: "Want to buy more",
-          confirmButtonText: "Check Please",
+          confirmButtonText: "Go to Checkout",
         }).then((res) => {
-          if (res.isConfirmed) router.push("/cart");
+          if (res.isConfirmed) router.push("/checkout");
         });
-        // Swal.fire("Added to Cart", service?.title, "success");
+        // Swal.fire("Service Booked", service?.title, "success");
       } else {
         Swal.fire("Opps", "Something Wrong Happen", "error");
       }
@@ -47,10 +47,10 @@ const CartButton = ({ service }) => {
       <button
         disabled={session.status == "loading" || isLoading}
         onClick={handleAdd2Cart}
-        className="btn bg-gradient-to-r from-purple-600 via-violet-600 to-fuchsia-600 text-white w-full flex gap-2 rounded-full"
+        className="btn bg-blue-600 text-white w-full flex gap-2 rounded-full"
       >
         <FaCartPlus />
-        Add to Cart
+        Book this Service
       </button>
     </div>
   );

@@ -31,6 +31,7 @@ export const createOrder = async (payload) => {
     items: cart,
     ...payload,
     totalPrice,
+    status: "unpaid", // Always set status to unpaid on creation
   };
 
   const result = await orderCollection.insertOne(newOrder);

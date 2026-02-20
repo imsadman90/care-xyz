@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import React from "react";
 import { useState } from "react";
 
@@ -29,7 +29,7 @@ const FAQSection = () => {
   const [openIdx, setOpenIdx] = useState(0);
   return (
     <section className="max-w-3xl mx-auto my-16 p-8 bg-white rounded-2xl shadow-lg border border-purple-100">
-      <h2 className="text-3xl font-bold text-purple-700 mb-6 text-center">
+      <h2 className="text-3xl font-bold text-blue-700 mb-6 text-center">
         Frequently Asked Questions
       </h2>
       <div className="space-y-4">
@@ -47,12 +47,12 @@ const FAQSection = () => {
                 aria-expanded={isOpen}
                 aria-controls={`faq-content-${idx}`}
               >
-                <span className={isOpen ? "text-purple-700" : ""}>
+                <span className={isOpen ? "text-blue-700" : ""}>
                   {faq.question}
                 </span>
                 <span
                   className={
-                    "ml-2 text-purple-500 transition-transform duration-300" +
+                    "ml-2 text-blue-500 transition-transform duration-300" +
                     (isOpen ? " rotate-180" : "")
                   }
                 >

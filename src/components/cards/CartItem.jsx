@@ -77,7 +77,7 @@ const CartItem = ({ item, removeItem, updateQuantity }) => {
   return (
     <div className="flex items-center gap-6 p-4 bg-white border border-purple-100 shadow-lg rounded-2xl hover:shadow-xl transition-all">
       {/* Image */}
-      <div className="w-20 h-20 relative flex-shrink-0 overflow-hidden rounded-xl border border-purple-50 bg-purple-50">
+      <div className="w-20 h-20 relative flex-shrink-0 overflow-hidden rounded-xl border border-purple-50 bg-blue-50">
         <Image
           src={image}
           alt={title}
@@ -96,13 +96,13 @@ const CartItem = ({ item, removeItem, updateQuantity }) => {
         </h3>
         <p className="text-xs text-gray-500 mb-2">
           Unit Price:{" "}
-          <span className="font-medium text-purple-700">Taka : {price}</span>
+          <span className="font-medium text-blue-700">Taka : {price}</span>
         </p>
 
         {/* Quantity controls */}
         <div className="flex items-center gap-2 mt-1">
           <button
-            className="btn btn-xs btn-outline border-purple-300 text-purple-700 hover:bg-purple-100"
+            className="btn btn-xs btn-outline border-purple-300 text-blue-700 hover:bg-blue-100"
             onClick={onDecrease}
             disabled={quantity === 1 || loading}
             aria-label="Decrease quantity"
@@ -110,12 +110,12 @@ const CartItem = ({ item, removeItem, updateQuantity }) => {
             <FaMinus />
           </button>
 
-          <span className="px-3 font-semibold text-purple-900 text-base bg-purple-50 rounded">
+          <span className="px-3 font-semibold text-purple-900 text-base bg-blue-50 rounded">
             {quantity}
           </span>
 
           <button
-            className="btn btn-xs btn-outline border-purple-300 text-purple-700 hover:bg-purple-100"
+            className="btn btn-xs btn-outline border-purple-300 text-blue-700 hover:bg-blue-100"
             disabled={quantity === 10 || loading}
             onClick={onIncrease}
             aria-label="Increase quantity"
@@ -127,7 +127,7 @@ const CartItem = ({ item, removeItem, updateQuantity }) => {
 
       {/* Total + Remove */}
       <div className="text-right space-y-3 min-w-[90px]">
-        <p className="font-bold text-lg text-purple-800">
+        <p className="font-bold text-lg text-blue-800">
           Taka : {price * quantity}
         </p>
 

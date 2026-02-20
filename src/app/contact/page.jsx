@@ -4,7 +4,7 @@ const ContactPage = () => {
   return (
     <main className="min-h-screen bg-gradient-to-br from-purple-50 to-white flex items-center justify-center p-4">
       <section className="w-full max-w-2xl bg-white rounded-xl shadow-lg p-8 border border-purple-100">
-        <h1 className="text-3xl font-bold text-purple-700 mb-2">Contact Us</h1>
+        <h1 className="text-3xl font-bold text-blue-700 mb-2">Contact Us</h1>
         <p className="text-gray-600 mb-6">
           We'd love to hear from you! Fill out the form below and our team will
           get back to you as soon as possible.
@@ -69,7 +69,7 @@ const ContactPage = () => {
           Or email us directly at{" "}
           <a
             href="mailto:support@carexyz.com"
-            className="text-purple-600 underline"
+            className="text-blue-600 underline"
           >
             support@carexyz.com
           </a>

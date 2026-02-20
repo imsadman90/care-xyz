@@ -1,5 +1,6 @@
 import { getSingleService } from "@/actions/server/service";
 import CartButton from "@/components/buttons/CartButtons";
+import Link from "next/link";
 import React from "react";
 import { FaStar, FaCheckCircle, FaShieldAlt, FaTruck } from "react-icons/fa";
 
@@ -56,64 +57,166 @@ const ServiceDetails = async ({ params }) => {
   const discountedPrice = price - (price * discount) / 100;
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-slate-50">
-      {/* Hero Section with Breadcrumb */}
-      <section className="max-w-7xl mx-auto px-4 py-8 md:py-12">
-        {/* Main Product Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 mb-12">
-          {/* Left Column - Image Gallery */}
-          <div className="space-y-4">
-            {/* Main Image */}
-            <div className="group relative w-full aspect-[4/3] rounded-2xl overflow-hidden bg-gradient-to-br from-slate-100 to-slate-200 shadow-[0_8px_30px_-4px_rgba(0,0,0,0.15)]">
+    <div className="min-h-screen bg-[#f7fafd] py-8">
+      <div className="max-w-7xl mx-auto px-4">
+        {/* Top Section: Image + Info */}
+        <div className="flex flex-col lg:flex-row gap-10 items-start mb-12">
+          {/* Left: Image Card */}
+          <div className="flex-1 flex justify-center">
+            <div className=" rounded-3xl shadow-xl  relative w-full max-w-xl flex flex-col items-center">
               <img
                 src={image}
                 alt={title}
-                width={800}
-                height={600}
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                width={480}
+                height={400}
+                className="rounded-2xl object-cover w-full h-[340px] md:h-[400px]"
               />
-
-              {/* Gradient Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent" />
-
-              {/* Discount Badge */}
-              {discount > 0 && (
-                <div className="absolute top-6 left-6 bg-gradient-to-r from-rose-500 to-red-500 text-white text-sm font-bold px-4 py-2 rounded-full shadow-xl border-2 border-white/30 backdrop-blur-sm animate-pulse">
-                  {discount}% OFF
-                </div>
-              )}
-
-              {/* Sold Badge */}
-              {sold > 0 && (
-                <div className="absolute top-6 right-6 bg-white/95 backdrop-blur-md text-slate-900 text-sm font-semibold px-4 py-2 rounded-full shadow-lg border border-slate-200/50">
-                  <span className="text-emerald-600">{sold}</span> sold
-                </div>
-              )}
-
-              {/* Price Badge */}
-              <div className="absolute bottom-6 left-6 flex items-center gap-2 bg-white/95 backdrop-blur-md rounded-2xl px-5 py-3 shadow-xl border border-slate-200/50">
-                <div className="flex flex-col">
-                  {discount > 0 && (
-                    <span className="text-xs text-slate-500 line-through">
-                      BDT {price}
-                    </span>
-                  )}
-                  <div className="flex items-baseline gap-1">
-                    <span className="text-xs font-medium text-slate-600">
-                      BDT
-                    </span>
-                    <span className="text-2xl font-bold text-slate-900">
-                      {discountedPrice}
-                    </span>
-                  </div>
-                </div>
+              {/* Badge */}
+              <div className="absolute -bottom-1/18 right-0 bg-white rounded-xl shadow flex items-center gap-2 px-4 py-2 border border-gray-100">
+                <span className="inline-flex items-center justify-center w-6 h-6 bg-green-100 rounded-full">
+                  <svg width="16" height="16" fill="none" viewBox="0 0 16 16">
+                    <path
+                      d="M8 14.667A6.667 6.667 0 1 0 8 1.333a6.667 6.667 0 0 0 0 13.334Z"
+                      stroke="#22C55E"
+                      strokeWidth="1.5"
+                    />
+                    <path
+                      d="m5.667 8.667 1.666 1.666 3-3"
+                      stroke="#22C55E"
+                      strokeWidth="1.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                </span>
+                <span className="text-xs font-semibold text-gray-700">
+                  VERIFIED CARE
+                  <br />
+                  <span className="text-green-600 font-bold">
+                    Background Checked
+                  </span>
+                </span>
               </div>
-
-              {/* Hover Zoom Indicator */}
-              <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
-                <div className="bg-white/90 backdrop-blur-sm rounded-full p-3 shadow-xl">
+            </div>
+          </div>
+          {/* Right: Info */}
+          <div className="flex-1 flex flex-col gap-4 lg:pl-6">
+            <h1 className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-2">
+              {title}
+            </h1>
+            <div className="flex items-center gap-2 mb-2">
+              {/* Stars */}
+              <div className="flex gap-0.5">
+                {Array.from({ length: 5 }, (_, i) => (
+                  <FaStar
+                    key={i}
+                    className={`w-5 h-5 ${i < Math.round(ratings) ? "text-amber-400" : "text-gray-200"}`}
+                  />
+                ))}
+              </div>
+              <span className="text-lg font-semibold text-gray-900 ml-2">
+                {ratings.toFixed(1)}
+              </span>
+              <span className="text-gray-500 text-sm">
+                ({reviews.toLocaleString()} Reviews)
+              </span>
+            </div>
+            <p className="text-gray-700 text-lg mb-4">
+              {description?.split("\n\n")[0]}
+            </p>
+            <div className="flex items-end gap-2 mb-4">
+              <span className="text-3xl font-extrabold text-gray-900">
+                ${price}
+              </span>
+              <span className="text-gray-500 text-lg">/ hour</span>
+            </div>
+            {/* Features Row */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-4">
+              <div className="flex items-center gap-2 text-gray-700 text-sm font-medium">
+                <svg
+                  className="w-8 h-8 text-blue-500 bg-blue-100 rounded-full"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M12 8v4l3 3"
+                  />
+                </svg>
+                24/7 Availability
+              </div>
+              <div className="flex items-center gap-2 text-gray-700 text-sm font-medium">
+                <svg
+                  className="w-8 h-8 text-blue-500 bg-blue-100 rounded-full"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M5 13l4 4L19 7"
+                  />
+                </svg>
+                CPR & First Aid Certified
+              </div>
+              <div className="flex items-center gap-2 text-gray-700 text-sm font-medium">
+                <svg
+                  className="w-8 h-8 text-blue-500 bg-blue-100 rounded-full"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M12 11c0-1.657 1.343-3 3-3s3 1.343 3 3-1.343 3-3 3-3-1.343-3-3z"
+                  />
+                </svg>
+                Vetted Caregivers
+              </div>
+              <div className="flex items-center gap-2 text-gray-700 text-sm font-medium">
+                <svg
+                  className="w-8 h-8 text-blue-500 bg-blue-100 rounded-full"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M9 17v-2a4 4 0 0 1 8 0v2"
+                  />
+                </svg>
+                Activity Reporting
+              </div>
+            </div>
+          </div>
+        </div>
+        {/* About Section */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="md:col-span-2">
+            <h2 className="text-2xl font-bold text-gray-900 mb-2">
+              About This Service
+            </h2>
+            <p className="text-gray-700 text-base mb-6">{description}</p>
+            <h3 className="text-xl font-bold text-gray-900 mb-2">
+              What's included
+            </h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-3 mb-8">
+              {info?.map((item, i) => (
+                <div
+                  key={i}
+                  className="flex items-center gap-2 text-green-700 text-base"
+                >
                   <svg
-                    className="w-6 h-6 text-slate-700"
+                    className="w-5 h-5 text-green-500"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -122,220 +225,95 @@ const ServiceDetails = async ({ params }) => {
                       strokeLinecap="round"
                       strokeLinejoin="round"
                       strokeWidth={2}
-                      d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m3-3H7"
+                      d="M5 13l4 4L19 7"
                     />
                   </svg>
+                  {item}
                 </div>
-              </div>
+              ))}
             </div>
-
-            {/* Trust Badges */}
-            <div className="grid grid-cols-3 gap-3">
-              <div className="flex flex-col items-center gap-2 p-4 bg-white rounded-xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
-                <FaShieldAlt className="w-5 h-5 text-emerald-500" />
-                <span className="text-xs font-medium text-slate-700 text-center">
-                  Secure Payment
+            {/* Safety Assurance */}
+            <div className="bg-blue-50 border border-blue-200 rounded-2xl p-6 mb-8">
+              <div className="flex items-center gap-2 mb-2">
+                <svg
+                  className="w-6 h-6 text-blue-600"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <circle cx="12" cy="12" r="10" strokeWidth="2" />
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M9 12l2 2 4-4"
+                  />
+                </svg>
+                <span className="text-lg font-bold text-blue-900">
+                  Safety Assurance
                 </span>
               </div>
-              <div className="flex flex-col items-center gap-2 p-4 bg-white rounded-xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
-                <FaTruck className="w-5 h-5 text-teal-500" />
-                <span className="text-xs font-medium text-slate-700 text-center">
-                  Fast Delivery
-                </span>
-              </div>
-              <div className="flex flex-col items-center gap-2 p-4 bg-white rounded-xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
-                <FaCheckCircle className="w-5 h-5 text-cyan-500" />
-                <span className="text-xs font-medium text-slate-700 text-center">
-                  Quality Assured
-                </span>
-              </div>
+              <p className="text-blue-900 mb-4">
+                Trust is our foundation. We use industry-leading verification
+                tools to ensure your family's safety.
+              </p>
+              <ol className="list-decimal list-inside space-y-2 text-blue-900">
+                <li>
+                  <span className="font-bold">Background Verification</span>
+                  <br />
+                  <span className="text-blue-800 text-sm">
+                    Every caregiver passes a multi-state criminal background
+                    check and sex offender registry search.
+                  </span>
+                </li>
+                <li>
+                  <span className="font-bold">Certification Check</span>
+                  <br />
+                  <span className="text-blue-800 text-sm">
+                    We verify all certifications including CPR, First Aid, and
+                    early education degrees.
+                  </span>
+                </li>
+                <li>
+                  <span className="font-bold">Insurance Coverage</span>
+                  <br />
+                  <span className="text-blue-800 text-sm">
+                    All bookings through Care.xyz are protected by our $1M
+                    liability insurance policy.
+                  </span>
+                </li>
+              </ol>
             </div>
           </div>
-
-          {/* Right Column - Product Info */}
-          <div className="flex flex-col gap-6">
-            {/* Title */}
-            <div className="space-y-3">
-              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 leading-tight">
-                {title}
-              </h1>
-
-              {/* Rating & Reviews */}
-              <div className="flex items-center gap-4 py-3 border-y border-slate-200">
-                <div className="flex items-center gap-2">
-                  <div className="flex gap-1">
-                    {Array.from({ length: 5 }, (_, i) => (
-                      <FaStar
-                        key={i}
-                        className={`w-5 h-5 transition-colors ${
-                          i < Math.round(ratings)
-                            ? "text-amber-400 drop-shadow-sm"
-                            : "text-slate-200"
-                        }`}
-                      />
-                    ))}
-                  </div>
-                  <span className="text-lg font-semibold text-slate-900">
-                    {ratings.toFixed(1)}
-                  </span>
-                </div>
-                <div className="h-5 w-px bg-slate-300" />
-                <span className="text-sm text-slate-600 font-medium">
-                  {reviews} {reviews === 1 ? "review" : "reviews"}
-                </span>
-              </div>
+          {/* Booking Summary */}
+          <div className="bg-white rounded-2xl shadow-lg border border-gray-200 p-6 h-fit">
+            <h3 className="text-xl font-bold text-gray-900 mb-2">
+              Booking Summary
+            </h3>
+            <p className="text-gray-600 mb-4">
+              Quick and secure booking with instant confirmation.
+            </p>
+            <div className="flex justify-between text-base mb-2">
+              <span>Hourly Rate</span>
+              <span>${price.toFixed(2)}</span>
             </div>
-
-            {/* Price (Mobile) */}
-            <div className="lg:hidden flex items-center gap-3 p-4 bg-gradient-to-r from-emerald-50 to-teal-50 rounded-xl border border-emerald-200">
-              <div className="flex flex-col">
-                {discount > 0 && (
-                  <span className="text-sm text-slate-500 line-through">
-                    BDT {price}
-                  </span>
-                )}
-                <div className="flex items-baseline gap-1">
-                  <span className="text-sm font-medium text-slate-700">
-                    BDT
-                  </span>
-                  <span className="text-3xl font-bold text-slate-900">
-                    {discountedPrice}
-                  </span>
-                </div>
-              </div>
-              {discount > 0 && (
-                <div className="ml-auto bg-rose-500 text-white text-xs font-bold px-3 py-1 rounded-full">
-                  Save {discount}%
-                </div>
-              )}
+            <div className="flex justify-between text-base mb-2">
+              <span>Service Fee</span>
+              <span>${(price * 0.1).toFixed(2)}</span>
             </div>
-
-            {/* Cart Button */}
-            <div className="w-full">
-              <CartButton
-                service={{ ...service, _id: service._id.toString() }}
-              />
+            <div className="flex justify-between text-lg font-bold mb-4">
+              <span>Total</span>
+              <span className="text-blue-600">
+                ${(price * 1.1).toFixed(2)} / hr
+              </span>
             </div>
-
-            {/* Key Features */}
-            <div className="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
-              <div className="bg-gradient-to-r from-slate-50 to-slate-100 px-6 py-4 border-b border-slate-200">
-                <h3 className="text-lg font-bold text-slate-900">
-                  Key Features
-                </h3>
-              </div>
-              <ul className="p-6 space-y-3">
-                {info?.map((item, i) => (
-                  <li key={i} className="flex items-start gap-3 text-slate-700">
-                    <FaCheckCircle className="w-5 h-5 text-emerald-500 flex-shrink-0 mt-0.5" />
-                    <span className="leading-relaxed">{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Additional Info Cards */}
-            <div className="grid grid-cols-2 gap-3">
-              <div className="p-4 bg-gradient-to-br from-emerald-50 to-teal-50 rounded-xl border border-emerald-200">
-                <div className="text-2xl font-bold text-emerald-600">
-                  {sold}+
-                </div>
-                <div className="text-sm text-slate-600 mt-1">
-                  Happy Customers
-                </div>
-              </div>
-              <div className="p-4 bg-gradient-to-br from-amber-50 to-yellow-50 rounded-xl border border-amber-200">
-                <div className="text-2xl font-bold text-amber-600">
-                  {ratings}
-                </div>
-                <div className="text-sm text-slate-600 mt-1">Star Rating</div>
-              </div>
-            </div>
+            <CartButton service={service} />
+            <p className="text-xs text-gray-400 text-center">
+              No commitment required. Cancel anytime.
+            </p>
           </div>
         </div>
-
-        {/* Tabs Section - Description & Q&A */}
-        <div className="space-y-8">
-          {/* Section Headers */}
-          <div className="flex items-center gap-2">
-            <div className="h-1 w-12 bg-gradient-to-r from-emerald-500 to-teal-500 rounded-full" />
-            <h2 className="text-2xl font-bold text-slate-900">
-              Details & Support
-            </h2>
-          </div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-            {/* Description */}
-            <div className="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden hover:shadow-md transition-shadow">
-              <div className="bg-gradient-to-r from-slate-50 to-slate-100 px-6 py-4 border-b border-slate-200">
-                <h2 className="text-xl font-bold text-slate-900">
-                  Description
-                </h2>
-              </div>
-              <div className="p-6 space-y-4 text-slate-700 leading-relaxed">
-                {description?.split("\n\n").map((para, idx) => (
-                  <p key={idx} className="text-base">
-                    {para}
-                  </p>
-                ))}
-              </div>
-            </div>
-
-            {/* Q&A */}
-            <div className="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden hover:shadow-md transition-shadow">
-              <div className="bg-gradient-to-r from-slate-50 to-slate-100 px-6 py-4 border-b border-slate-200">
-                <h2 className="text-xl font-bold text-slate-900">
-                  Questions & Answers
-                </h2>
-              </div>
-              <div className="p-6 space-y-4 max-h-[500px] overflow-y-auto">
-                {qna?.length ? (
-                  qna.map((item, i) => (
-                    <div
-                      key={i}
-                      className="p-4 bg-gradient-to-br from-slate-50 to-slate-100 rounded-xl border border-slate-200 hover:border-emerald-300 transition-colors"
-                    >
-                      <p className="font-semibold text-slate-900 mb-2 flex items-start gap-2">
-                        <span className="text-emerald-600 flex-shrink-0">
-                          Q:
-                        </span>
-                        <span>{item.question}</span>
-                      </p>
-                      <p className="text-sm text-slate-600 flex items-start gap-2 pl-5">
-                        <span className="text-teal-600 flex-shrink-0 font-semibold">
-                          A:
-                        </span>
-                        <span>{item.answer}</span>
-                      </p>
-                    </div>
-                  ))
-                ) : (
-                  <div className="text-center py-8">
-                    <div className="w-16 h-16 mx-auto mb-4 bg-slate-100 rounded-full flex items-center justify-center">
-                      <svg
-                        className="w-8 h-8 text-slate-400"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                        />
-                      </svg>
-                    </div>
-                    <p className="text-slate-500 italic">
-                      No questions yet. Be the first to ask!
-                    </p>
-                  </div>
-                )}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      </div>
     </div>
   );
 };

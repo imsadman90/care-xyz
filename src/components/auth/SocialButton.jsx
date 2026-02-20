@@ -17,7 +17,7 @@ export const SocialButtons = () => {
     <div className="flex gap-3 mt-4">
       <button
         onClick={handleSignIn}
-        className="btn btn-outline bg-[#00838F] text-white flex-1"
+        className="btn btn-outline bg-green-50 hover:bg-green-100 border-green-400 border-2  text-green-600 flex-1"
       >
         <FaGoogle className="text-lg" />
         Google

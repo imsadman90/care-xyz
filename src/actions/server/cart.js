@@ -8,7 +8,8 @@ import { cache } from "react";
 
 const { dbConnect, collections } = require("@/lib/dbConnect");
 
-const cartCollection = dbConnect(collections.CART);
+// Fallback for cart collection name if not present in collections
+const cartCollection = dbConnect(collections.CART || "cart");
 
 export const handleCart = async (serviceId) => {
   const { user } = (await getServerSession(authOptions)) || {};

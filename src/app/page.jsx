@@ -1,5 +1,7 @@
 import Banner from "@/components/home/Banner";
 import Services from "@/components/home/Services";
+import HomeAbout from "@/components/home/HomeAbout";
+import HowItWorks from "@/components/home/HowItWorks";
 import FAQSection from "@/components/home/FAQSection";
 import TestimonialsSection from "@/components/home/TestimonialsSection";
 import Test from "@/components/Test";
@@ -11,11 +13,14 @@ export default async function Home() {
   const session = await getServerSession(authOptions);
   return (
     <div className="space-y-20">
-      {/* <Test></Test>
-      <p>{JSON.stringify(session)}</p> */}
+
       <section>
         <Banner />
       </section>
+
+      <HowItWorks />
+
+      <HomeAbout />
 
       <section>
         <Services />

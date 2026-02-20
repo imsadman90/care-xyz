@@ -10,13 +10,13 @@ const AuthButtons = () => {
       {session.status === "authenticated" ? (
         <button
           onClick={() => signOut()}
-          className="btn btn-sm px-4 py-2 rounded-md border-2 border-purple-500 bg-purple-100 text-purple-700 hover:bg-purple-200 transition font-semibold shadow-none"
+          className="btn btn-md px-4 py-2 rounded-full border-2 border-blue-500 bg-blue-100 text-black hover:bg-blue-200 transition font-semibold shadow-none"
         >
           Log Out
         </button>
       ) : (
         <Link href={"/login"}>
-          <button className="btn btn-sm px-4 py-2 rounded-md border-2 border-purple-500 bg-purple-100 text-purple-700 hover:bg-purple-200 transition font-semibold shadow-none">
+          <button className="btn btn-sm px-4 py-2 rounded-full border-2 border-blue-500 bg-blue-100 text-black hover:bg-blue-200 transition font-semibold shadow-none">
             Login
           </button>
         </Link>
