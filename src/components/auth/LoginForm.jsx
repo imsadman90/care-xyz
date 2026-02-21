@@ -7,7 +7,6 @@ import { useSearchParams } from "next/navigation";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { AiOutlineLoading } from "react-icons/ai";
-import Logo from "../layouts/Logo";
 
 const LoginForm = () => {
   const params = useSearchParams();
@@ -37,7 +36,7 @@ const LoginForm = () => {
         "error",
       );
     } else {
-      Swal.fire("success", "Welcome to Kidz Hub", "success");
+      Swal.fire("success", "Welcome to Care.xyz", "success");
       router.push(callback);
     }
 

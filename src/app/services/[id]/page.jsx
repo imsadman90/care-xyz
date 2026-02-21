@@ -3,6 +3,8 @@ import CartButton from "@/components/buttons/CartButtons";
 import Link from "next/link";
 import React from "react";
 import { FaStar, FaCheckCircle, FaShieldAlt, FaTruck } from "react-icons/fa";
+import { Ri24HoursFill, RiFirstAidKitLine } from "react-icons/ri";
+import { TbFileReport, TbNurse } from "react-icons/tb";
 
 export async function generateMetadata({ params }) {
   const { id } = await params;
@@ -120,6 +122,10 @@ const ServiceDetails = async ({ params }) => {
               <span className="text-gray-500 text-sm">
                 ({reviews.toLocaleString()} Reviews)
               </span>
+              {/* Sold count */}
+              <span className="text-green-600 text-sm font-semibold ml-4">
+                {sold?.toLocaleString()} Sold
+              </span>
             </div>
             <p className="text-gray-700 text-lg mb-4">
               {description?.split("\n\n")[0]}
@@ -132,68 +138,20 @@ const ServiceDetails = async ({ params }) => {
             </div>
             {/* Features Row */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-4">
-              <div className="flex items-center gap-2 text-gray-700 text-sm font-medium">
-                <svg
-                  className="w-8 h-8 text-blue-500 bg-blue-100 rounded-full"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M12 8v4l3 3"
-                  />
-                </svg>
+              <div className="flex  items-center gap-2 text-gray-700 text-sm font-medium">
+                <Ri24HoursFill size={30} className="text-blue-600" />
                 24/7 Availability
               </div>
               <div className="flex items-center gap-2 text-gray-700 text-sm font-medium">
-                <svg
-                  className="w-8 h-8 text-blue-500 bg-blue-100 rounded-full"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M5 13l4 4L19 7"
-                  />
-                </svg>
+                <RiFirstAidKitLine size={30} className="text-blue-600" />
                 CPR & First Aid Certified
               </div>
               <div className="flex items-center gap-2 text-gray-700 text-sm font-medium">
-                <svg
-                  className="w-8 h-8 text-blue-500 bg-blue-100 rounded-full"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M12 11c0-1.657 1.343-3 3-3s3 1.343 3 3-1.343 3-3 3-3-1.343-3-3z"
-                  />
-                </svg>
+                <TbNurse size={30} className="text-blue-600" />
                 Vetted Caregivers
               </div>
               <div className="flex items-center gap-2 text-gray-700 text-sm font-medium">
-                <svg
-                  className="w-8 h-8 text-blue-500 bg-blue-100 rounded-full"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M9 17v-2a4 4 0 0 1 8 0v2"
-                  />
-                </svg>
+                <TbFileReport size={30} className="text-blue-600" />
                 Activity Reporting
               </div>
             </div>
@@ -232,59 +190,27 @@ const ServiceDetails = async ({ params }) => {
                 </div>
               ))}
             </div>
-            {/* Safety Assurance */}
-            <div className="bg-blue-50 border border-blue-200 rounded-2xl p-6 mb-8">
-              <div className="flex items-center gap-2 mb-2">
-                <svg
-                  className="w-6 h-6 text-blue-600"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <circle cx="12" cy="12" r="10" strokeWidth="2" />
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M9 12l2 2 4-4"
-                  />
-                </svg>
-                <span className="text-lg font-bold text-blue-900">
-                  Safety Assurance
-                </span>
+            {/* Q&A Section */}
+            {qna && qna.length > 0 && (
+              <div className="mb-8">
+                <h3 className="text-xl font-bold text-gray-900 mb-2">Q&A</h3>
+                <ul className="space-y-4">
+                  {qna.map((qa, idx) => (
+                    <li
+                      key={idx}
+                      className="bg-gray-50 rounded-xl p-4 border border-gray-200"
+                    >
+                      <div className="font-semibold text-blue-700 mb-1">
+                        Q: {qa.question}
+                      </div>
+                      <div className="text-gray-700">A: {qa.answer}</div>
+                    </li>
+                  ))}
+                </ul>
               </div>
-              <p className="text-blue-900 mb-4">
-                Trust is our foundation. We use industry-leading verification
-                tools to ensure your family's safety.
-              </p>
-              <ol className="list-decimal list-inside space-y-2 text-blue-900">
-                <li>
-                  <span className="font-bold">Background Verification</span>
-                  <br />
-                  <span className="text-blue-800 text-sm">
-                    Every caregiver passes a multi-state criminal background
-                    check and sex offender registry search.
-                  </span>
-                </li>
-                <li>
-                  <span className="font-bold">Certification Check</span>
-                  <br />
-                  <span className="text-blue-800 text-sm">
-                    We verify all certifications including CPR, First Aid, and
-                    early education degrees.
-                  </span>
-                </li>
-                <li>
-                  <span className="font-bold">Insurance Coverage</span>
-                  <br />
-                  <span className="text-blue-800 text-sm">
-                    All bookings through Care.xyz are protected by our $1M
-                    liability insurance policy.
-                  </span>
-                </li>
-              </ol>
-            </div>
+            )}
           </div>
+
           {/* Booking Summary */}
           <div className="bg-white rounded-2xl shadow-lg border border-gray-200 p-6 h-fit">
             <h3 className="text-xl font-bold text-gray-900 mb-2">
@@ -312,6 +238,58 @@ const ServiceDetails = async ({ params }) => {
               No commitment required. Cancel anytime.
             </p>
           </div>
+        </div>
+        {/* Safety Assurance */}
+        <div className="bg-blue-50 border border-blue-200 rounded-2xl p-6 mb-8">
+          <div className="flex items-center gap-2 mb-2">
+            <svg
+              className="w-6 h-6 text-blue-600"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <circle cx="12" cy="12" r="10" strokeWidth="2" />
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M9 12l2 2 4-4"
+              />
+            </svg>
+            <span className="text-lg font-bold text-blue-900">
+              Safety Assurance
+            </span>
+          </div>
+          <p className="text-blue-900 mb-4">
+            Trust is our foundation. We use industry-leading verification tools
+            to ensure your family's safety.
+          </p>
+          <ol className="list-decimal list-inside space-y-2 text-blue-900">
+            <li>
+              <span className="font-bold">Background Verification</span>
+              <br />
+              <span className="text-blue-800 text-sm">
+                Every caregiver passes a multi-state criminal background check
+                and sex offender registry search.
+              </span>
+            </li>
+            <li>
+              <span className="font-bold">Certification Check</span>
+              <br />
+              <span className="text-blue-800 text-sm">
+                We verify all certifications including CPR, First Aid, and early
+                education degrees.
+              </span>
+            </li>
+            <li>
+              <span className="font-bold">Insurance Coverage</span>
+              <br />
+              <span className="text-blue-800 text-sm">
+                All bookings through Care.xyz are protected by our $1M liability
+                insurance policy.
+              </span>
+            </li>
+          </ol>
         </div>
       </div>
     </div>

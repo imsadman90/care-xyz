@@ -4,47 +4,42 @@ import { FaStar } from "react-icons/fa";
 import CartButton from "../buttons/CartButtons";
 
 const ServiceCard = ({ service }) => {
-  const { title, image, description, _id } = service;
+  const {
+    title,
+    image,
+    description,
+    _id,
+    rating = 4.5,
+    nights = 3,
+    tag = "Guest Favorite",
+  } = service;
 
   return (
-    <div className="w-full max-w-sm mx-auto">
-      <div className="bg-blue-50 rounded-2xl overflow-hidden shadow-md flex flex-col h-full">
-        {/* Image on top */}
-        <div className="w-full h-56 bg-gray-50 flex items-center justify-center overflow-hidden">
-          <img
-            src={image}
-            alt={title}
-            width={400}
-            height={224}
-            className="w-full h-full object-cover"
-          />
-        </div>
-        {/* Content */}
-        <div className="flex flex-col flex-1 px-6 py-5">
-          <h2 className="text-xl font-extrabold text-gray-900 mb-1">{title}</h2>
-          <p className="text-gray-700 text-sm mb-6 flex-1">
-            {description.length > 90
-              ? description.slice(0, 90) + "..."
+    <div className="w-full mx-auto">
+      <div className="relative rounded-3xl overflow-hidden shadow-xl group h-[400px] flex flex-col justify-end bg-gray-200">
+        {/* Background Image */}
+        <img
+          src={image}
+          alt={title}
+          width={400}
+          height={224}
+          className="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+        />
+        {/* Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/10 to-transparent" />
+        {/* Card Content */}
+        <div className="relative p-6 flex flex-col gap-2 text-white">
+          <h2 className="text-2xl font-bold mb-1 drop-shadow-lg">{title}</h2>
+          <p className="text-sm opacity-90 mb-2 drop-shadow-lg">
+            {description.length > 80
+              ? description.slice(0, 80) + "..."
               : description}
           </p>
           <Link
             href={`/services/${_id}`}
-            className="inline-flex items-center text-blue-600 font-semibold text-base hover:underline mt-auto"
+            className="block w-full mt-2 bg-blue-50 text-blue-600 font-bold text-base rounded-full py-3 text-center shadow-lg hover:bg-blue-100 hover:text-blue-700 transition"
           >
             View Details
-            <svg
-              className="w-5 h-5 ml-1"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M9 5l7 7-7 7"
-              />
-            </svg>
           </Link>
         </div>
       </div>

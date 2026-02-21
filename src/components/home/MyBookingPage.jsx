@@ -9,7 +9,7 @@ import { FaUserNurse, FaPaw, FaWheelchair, FaShieldAlt } from "react-icons/fa";
 import { PiBaby } from "react-icons/pi";
 
 const MyBookingPage = () => {
-  const { data: session } = useSession();
+  const { data: session, status } = useSession();
   const router = useRouter();
 
   // Modal state
@@ -21,6 +21,13 @@ const MyBookingPage = () => {
 
   // Filter state for status tabs
   const [filter, setFilter] = useState("All");
+
+  // Redirect to login if not authenticated
+  useEffect(() => {
+    if (status === "unauthenticated") {
+      router.replace("/login");
+    }
+  }, [status, router]);
 
   const statusOptions = [
     { label: "All", color: "gray" },
@@ -131,6 +138,9 @@ const MyBookingPage = () => {
     );
   };
 
+  if (status === "unauthenticated") {
+    return null;
+  }
   return (
     <div className="min-h-screen bg-[#f7fafd] py-10 px-2 sm:px-6 lg:px-8">
       {/* Order Details Modal */}
