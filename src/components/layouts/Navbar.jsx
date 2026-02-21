@@ -8,43 +8,55 @@ import AuthButtons from "../buttons/AuthButtons";
 const Navbar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { data: session } = useSession();
-  const nav = (
+
+  const closeMenu = () => setMobileMenuOpen(false);
+
+  const NavLinks = ({ onClose }) => (
     <>
       <li>
-        <NavLink href={"/"}>Home</NavLink>
+        <NavLink href={"/"} onClick={onClose}>
+          Home
+        </NavLink>
       </li>
       <li>
-        <NavLink href={"/about"}>About</NavLink>
+        <NavLink href={"/about"} onClick={onClose}>
+          About
+        </NavLink>
       </li>
       <li>
-        <NavLink href={"/services"}>Services</NavLink>
+        <NavLink href={"/services"} onClick={onClose}>
+          Services
+        </NavLink>
       </li>
       {session?.user && (
         <li>
-          <NavLink href={"/my-booking"}>My Bookings</NavLink>
+          <NavLink href={"/my-booking"} onClick={onClose}>
+            My Bookings
+          </NavLink>
         </li>
       )}
-      {/* Admin Dashboard link, only visible to admin */}
       <li>
-        <NavLink href={"/admin-dashboard"}>Admin Dashboard</NavLink>
+        <NavLink href={"/admin-dashboard"} onClick={onClose}>
+          Admin Dashboard
+        </NavLink>
       </li>
     </>
   );
+
   return (
     <header className="sticky top-0 z-50 w-full bg-white border-b border-gray-200 shadow-sm">
       <nav className="max-w-7xl mx-auto px-4 sm:px-8">
         <div className="flex h-20 items-center justify-between">
-          {/* Left: Logo and site name */}
           <div className="flex items-center gap-2">
             <Logo />
           </div>
-          {/* Center: Nav links */}
+
           <div className="hidden lg:flex flex-1 justify-center">
             <ul className="flex gap-8 text-base font-medium text-gray-700">
-              {nav}
+              <NavLinks />
             </ul>
           </div>
-          {/* Mobile menu button */}
+
           <div className="flex lg:hidden">
             <button
               type="button"
@@ -53,7 +65,6 @@ const Navbar = () => {
               aria-expanded={mobileMenuOpen}
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             >
-              {/* Hamburger icon */}
               <svg
                 className="h-6 w-6"
                 fill="none"
@@ -79,29 +90,42 @@ const Navbar = () => {
               </svg>
             </button>
           </div>
-          {/* Right: Auth Buttons */}
+
           <div className="hidden lg:flex items-center gap-2">
             <AuthButtons />
           </div>
         </div>
-        {/* Mobile menu */}
-        {/* Mobile menu with smooth transition */}
+
+        {/* Backdrop — clicking outside the menu panel closes it */}
         <div
-          className={`lg:hidden fixed inset-0 z-40 transition-all duration-300 ease-in-out ${mobileMenuOpen ? "opacity-100 translate-y-0 pointer-events-auto" : "opacity-0 -translate-y-4 pointer-events-none"}`}
+          className={`lg:hidden fixed inset-0 z-40 transition-all duration-300 ease-in-out ${
+            mobileMenuOpen
+              ? "opacity-100 pointer-events-auto"
+              : "opacity-0 pointer-events-none"
+          }`}
           id="mobile-menu"
           style={{
-            background: mobileMenuOpen
-              ? "rgba(255,255,255,0.98)"
-              : "rgba(255,255,255,0)",
+            background: mobileMenuOpen ? "rgba(0,0,0,0.3)" : "transparent",
           }}
           aria-hidden={!mobileMenuOpen}
+          onClick={closeMenu} // 👈 click outside closes the menu
         >
-          <ul className="flex flex-col gap-4 py-4 text-base font-medium text-gray-700 bg-white border-t border-gray-200 shadow-md max-w-md mx-auto mt-4 rounded-xl px-4">
-            {nav}
-            <li className="flex justify-center mt-2">
-              <AuthButtons />
-            </li>
-          </ul>
+          {/* Panel — stop clicks from bubbling to the backdrop */}
+          <div
+            className={`transition-all duration-300 ease-in-out ${
+              mobileMenuOpen
+                ? "translate-y-0 opacity-100"
+                : "-translate-y-4 opacity-0"
+            }`}
+            onClick={(e) => e.stopPropagation()} // 👈 prevent closing when clicking inside
+          >
+            <ul className="flex flex-col gap-4 py-4 text-base font-medium text-gray-700 bg-white border-t border-gray-200 shadow-md max-w-md mx-auto mt-4 rounded-xl px-4">
+              <NavLinks onClose={closeMenu} /> {/* 👈 close on nav click */}
+              <li className="flex justify-center mt-2">
+                <AuthButtons />
+              </li>
+            </ul>
+          </div>
         </div>
       </nav>
     </header>
