@@ -24,13 +24,13 @@ const checkOutPage = async () => {
         <>
           <div className="text-center py-20 space-y-5">
             <h2 className="text-4xl font-bold">
-              আপনি কোন প্রোডাক্ট সিলেক্ট করেন নি
+              You haven't select any service yet
             </h2>
             <Link
               href={"/services"}
               className="btn btn-primary btn-lg btn-wide"
             >
-              <TbHorseToy></TbHorseToy> পন্য দেখুন
+              <TbHorseToy></TbHorseToy> See Services
             </Link>
           </div>
         </>

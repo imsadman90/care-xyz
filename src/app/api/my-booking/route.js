@@ -9,7 +9,7 @@ export async function DELETE(req) {
   if (!session?.user?.email) {
     return NextResponse.json({ success: false }, { status: 401 });
   }
-  const url = new URL(req.url, "http://localhost");
+  const url = new URL(req.url, "https://care-xyz-new.vercel.app/");
   const orderId = url.searchParams.get("orderId");
   if (!orderId) {
     return NextResponse.json({ success: false }, { status: 400 });
