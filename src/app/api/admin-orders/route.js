@@ -61,6 +61,8 @@ export async function GET() {
             status: 1,
             adminFeedback: 1,
             createdAt: 1,
+            totalPrice: 1,
+            customerEmail: 1,
           },
         },
       ])

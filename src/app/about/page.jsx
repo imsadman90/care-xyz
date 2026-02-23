@@ -221,7 +221,7 @@ export default function AboutPage() {
             Whether you’re looking for care or looking to provide it, we’re here
             for you. Start your journey with Care.xyz today.
           </p>
-          <div className="flex gap-4">
+          <div className=" flex flex-col md:flex-row gap-4">
             <a
               href="/services"
               className="btn bg-blue-400 hover:bg-blue-500 text-white font-semibold px-6 py-2 shadow border-none rounded-full"
