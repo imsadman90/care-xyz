@@ -36,7 +36,7 @@ export default function SuccessPage() {
         </p>
         <p className="mb-4">A confirmation email has been sent to you.</p>
         <a href="/" className="btn bg-blue-600 text-white mt-4">
-          Go to Home
+          Go to HOME
         </a>
       </div>
     </div>
