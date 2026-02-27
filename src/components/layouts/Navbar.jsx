@@ -78,95 +78,95 @@ const Navbar = () => {
   );
 
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-50 w-full bg-white border-b border-gray-200 shadow-sm transition-transform duration-300 ease-in-out ${
-        isVisible ? "translate-y-0" : "-translate-y-full"
-      }`}
-    >
-      <nav className="max-w-7xl mx-auto px-4 sm:px-8">
-        <div className="flex h-20 items-center justify-between">
-          <div className="flex items-center gap-2">
-            <Logo />
-          </div>
+    <>
+      <header
+        className={`fixed top-0 left-0 right-0 z-50 w-full bg-white border-b border-gray-200 shadow-sm transition-transform duration-300 ease-in-out ${
+          isVisible ? "translate-y-0" : "-translate-y-full"
+        }`}
+      >
+        <nav className="max-w-7xl mx-auto px-4 sm:px-8">
+          <div className="flex h-20 items-center justify-between">
+            <div className="flex items-center gap-2">
+              <Logo />
+            </div>
 
-          <div className="hidden lg:flex flex-1 justify-center">
-            <ul className="flex gap-8 text-base font-medium text-gray-700">
-              <NavLinks />
-            </ul>
-          </div>
+            <div className="hidden lg:flex flex-1 justify-center">
+              <ul className="flex gap-8 text-base font-medium text-gray-700">
+                <NavLinks />
+              </ul>
+            </div>
 
-          <div className="flex lg:hidden">
-            <button
-              type="button"
-              className="inline-flex items-center justify-center rounded-md p-2 text-gray-700 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500"
-              aria-controls="mobile-menu"
-              aria-expanded={mobileMenuOpen}
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            >
-              <svg
-                className="h-6 w-6"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
+            <div className="flex lg:hidden">
+              <button
+                type="button"
+                className="inline-flex items-center justify-center rounded-md p-2 text-gray-700 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500"
+                aria-controls="mobile-menu"
+                aria-expanded={mobileMenuOpen}
+                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               >
-                {mobileMenuOpen ? (
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M6 18L18 6M6 6l12 12"
-                  />
-                ) : (
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M4 6h16M4 12h16M4 18h16"
-                  />
-                )}
-              </svg>
-            </button>
-          </div>
+                <svg
+                  className="h-6 w-6"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  {mobileMenuOpen ? (
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M6 18L18 6M6 6l12 12"
+                    />
+                  ) : (
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M4 6h16M4 12h16M4 18h16"
+                    />
+                  )}
+                </svg>
+              </button>
+            </div>
 
-          <div className="hidden lg:flex items-center gap-2">
-            <AuthButtons />
+            <div className="hidden lg:flex items-center gap-2">
+              <AuthButtons />
+            </div>
           </div>
-        </div>
+        </nav>
+      </header>
 
-        {/* Backdrop — clicking outside the menu panel closes it */}
+      <div
+        className={`lg:hidden fixed inset-0 z-40 transition-all duration-300 ease-in-out ${
+          mobileMenuOpen
+            ? "opacity-100 pointer-events-auto"
+            : "opacity-0 pointer-events-none"
+        }`}
+        id="mobile-menu"
+        style={{
+          background: mobileMenuOpen ? "rgba(0,0,0,0.3)" : "transparent",
+        }}
+        aria-hidden={!mobileMenuOpen}
+        onClick={closeMenu}
+      >
+
         <div
-          className={`lg:hidden fixed inset-0 z-40 transition-all duration-300 ease-in-out ${
+          className={`absolute top-20 left-0 right-0 transition-all duration-300 ease-in-out ${
             mobileMenuOpen
-              ? "opacity-100 pointer-events-auto"
-              : "opacity-0 pointer-events-none"
+              ? "translate-y-0 opacity-100"
+              : "-translate-y-4 opacity-0"
           }`}
-          id="mobile-menu"
-          style={{
-            background: mobileMenuOpen ? "rgba(0,0,0,0.3)" : "transparent",
-          }}
-          aria-hidden={!mobileMenuOpen}
-          onClick={closeMenu} // 👈 click outside closes the menu
+          onClick={(e) => e.stopPropagation()}
         >
-          {/* Panel — stop clicks from bubbling to the backdrop */}
-          <div
-            className={`transition-all duration-300 ease-in-out ${
-              mobileMenuOpen
-                ? "translate-y-0 opacity-100"
-                : "-translate-y-4 opacity-0"
-            }`}
-            onClick={(e) => e.stopPropagation()} // 👈 prevent closing when clicking inside
-          >
-            <ul className="flex flex-col gap-4 py-4 text-base font-medium text-gray-700 bg-white border-t border-gray-200 shadow-md max-w-md mx-auto mt-4 rounded-xl px-4">
-              <NavLinks onClose={closeMenu} /> {/* 👈 close on nav click */}
-              <li className="flex justify-center mt-2">
-                <AuthButtons />
-              </li>
-            </ul>
-          </div>
+          <ul className="flex flex-col gap-4 py-4 text-base font-medium text-gray-700 bg-white border-t border-gray-200 shadow-md max-w-md mx-auto  px-4">
+            <NavLinks onClose={closeMenu} />
+            <li className="flex justify-center mt-2">
+              <AuthButtons />
+            </li>
+          </ul>
         </div>
-      </nav>
-    </header>
+      </div>
+    </>
   );
 };
 
