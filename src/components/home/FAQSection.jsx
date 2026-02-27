@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import Link from "next/link";
 import { useState } from "react";
 
 const faqs = [
@@ -16,7 +16,7 @@ const faqs = [
   {
     question: "Is my personal information secure?",
     answer:
-      "Yes, we prioritize your privacy and use advanced security measures to protect your personal and health information.",
+      "Yes, we prioritize your privacy and use advanced security measures to protect your personal and health information at every step.",
   },
   {
     question: "How can I contact support?",
@@ -26,57 +26,120 @@ const faqs = [
 ];
 
 const FAQSection = () => {
-  const [openIdx, setOpenIdx] = useState(0);
+  const [openIdx, setOpenIdx] = useState(null);
+
   return (
-    <section className="max-w-3xl mx-auto my-16 p-8 bg-white rounded-2xl shadow-lg border border-purple-100">
-      <h2 className="text-3xl font-bold text-sky-700 mb-6 text-center">
-        Frequently Asked Questions
-      </h2>
-      <div className="space-y-4">
-        {faqs.map((faq, idx) => {
-          const isOpen = openIdx === idx;
-          return (
-            <div
-              key={idx}
-              className="border-b border-gray-200 py-4 transition-all"
-            >
-              <button
-                type="button"
-                className="w-full flex items-center justify-between text-left text-lg font-semibold text-gray-800 focus:outline-none group"
-                onClick={() => setOpenIdx(isOpen ? -1 : idx)}
-                aria-expanded={isOpen}
-                aria-controls={`faq-content-${idx}`}
-              >
-                <span className={isOpen ? "text-sky-700" : ""}>
-                  {faq.question}
-                </span>
-                <span
-                  className={
-                    "ml-2 text-sky-500 transition-transform duration-300" +
-                    (isOpen ? " rotate-180" : "")
-                  }
-                >
-                  ▼
-                </span>
-              </button>
+    <section className="min-h-screen bg-gray-100 flex items-center justify-center px-5 py-16 font-sans">
+      <div className="w-full max-w-[680px]">
+        {/* Eyebrow */}
+        <div className="flex items-center gap-3 mb-4">
+          <span className="h-px w-8 bg-teal-700" />
+          <span className="text-[11px] font-medium tracking-[0.14em] uppercase text-teal-700">
+            Support Center
+          </span>
+        </div>
+
+        {/* Heading */}
+        <h2 className="font-serif text-4xl md:text-5xl font-bold text-[#1a2a25] leading-tight tracking-tight mb-3">
+          Questions worth
+          <br />
+          asking.
+        </h2>
+        <p className="text-[15px] text-gray-700 mb-12 leading-relaxed">
+          Everything you need to know about CareXYZ and how it works.
+        </p>
+
+        {/* FAQ Items */}
+        <div>
+          {faqs.map((faq, idx) => {
+            const isOpen = openIdx === idx;
+            return (
               <div
-                id={`faq-content-${idx}`}
-                className="overflow-hidden transition-all duration-500 ease-in-out"
-                style={{
-                  maxHeight: isOpen ? "200px" : "0",
-                  opacity: isOpen ? 1 : 0,
-                  transition:
-                    "max-height 0.5s cubic-bezier(0.4,0,0.2,1), opacity 0.4s",
-                }}
-                aria-hidden={!isOpen}
+                key={idx}
+                className={`border-b border-[#e2ddd6] ${idx === 0 ? "border-t" : ""}`}
               >
-                <p className="mt-2 text-gray-600 leading-relaxed pl-1">
-                  {faq.answer}
-                </p>
+                <button
+                  type="button"
+                  className="w-full flex items-center gap-5 py-6 text-left group cursor-pointer bg-transparent border-none outline-none"
+                  onClick={() => setOpenIdx(isOpen ? null : idx)}
+                  aria-expanded={isOpen}
+                  aria-controls={`faq-answer-${idx}`}
+                >
+                  {/* Number */}
+                  <span
+                    className={`flex-shrink-0 w-6 font-serif text-xs font-semibold transition-colors duration-300 ${
+                      isOpen ? "text-teal-700" : "text-[#c8c0b4]"
+                    }`}
+                  >
+                    0{idx + 1}
+                  </span>
+
+                  {/* Question */}
+                  <span
+                    className={`flex-1 text-base font-medium leading-snug transition-colors duration-300 ${
+                      isOpen
+                        ? "text-teal-700"
+                        : "text-[#1a2a25] group-hover:text-teal-700"
+                    }`}
+                  >
+                    {faq.question}
+                  </span>
+
+                  {/* Icon: + rotates to × */}
+                  <span
+                    className={`flex-shrink-0 w-8 h-8 rounded-full border flex items-center justify-center relative transition-all duration-300 ${
+                      isOpen
+                        ? "border-teal-700 bg-teal-700 rotate-45"
+                        : "border-[#d5cfc8] bg-transparent rotate-0"
+                    }`}
+                    aria-hidden="true"
+                  >
+                    <span
+                      className={`absolute w-3 h-px rounded transition-colors duration-300 ${
+                        isOpen ? "bg-white" : "bg-[#7a8a85]"
+                      }`}
+                    />
+                    <span
+                      className={`absolute w-px h-3 rounded transition-colors duration-300 ${
+                        isOpen ? "bg-white" : "bg-[#7a8a85]"
+                      }`}
+                    />
+                  </span>
+                </button>
+
+                {/* Answer */}
+                <div
+                  id={`faq-answer-${idx}`}
+                  className={`overflow-hidden transition-all duration-500 ease-in-out ${
+                    isOpen ? "max-h-60 opacity-100" : "max-h-0 opacity-0"
+                  }`}
+                  aria-hidden={!isOpen}
+                >
+                  <p className="pb-6 pl-11 text-sm text-gray-700 leading-[1.75]">
+                    {faq.answer}
+                  </p>
+                </div>
               </div>
-            </div>
-          );
-        })}
+            );
+          })}
+        </div>
+
+        {/* Footer CTA */}
+        <div className="mt-12 flex items-center justify-between gap-4 bg-white rounded-2xl px-8 py-7 shadow-sm">
+          <div>
+            <p className="text-[15px] font-medium text-[#1a2a25] mb-1">
+              Still have questions?
+            </p>
+            <p className="text-sm font-light text-[#7a8a85] leading-snug">
+              Our team is happy to help you anytime.
+            </p>
+          </div>
+          <Link href="/contact"
+            className="flex-shrink-0 bg-teal-700 hover:bg-teal-800 text-white text-sm font-medium rounded-full px-6 py-3 transition-all duration-200 hover:-translate-y-px cursor-pointer whitespace-nowrap"
+          >
+            Contact support
+          </Link>
+        </div>
       </div>
     </section>
   );

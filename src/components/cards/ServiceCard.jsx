@@ -37,7 +37,7 @@ const ServiceCard = ({ service }) => {
           </p>
           <Link
             href={`/services/${_id}`}
-            className="block w-full mt-2 bg-blue-50 text-blue-600 font-bold text-base rounded-full py-3 text-center shadow-lg hover:bg-blue-100 hover:text-sky-700 transition"
+            className="block w-full mt-2 bg-blue-50 text-gray-600  text-base rounded-full py-3 text-center shadow-lg hover:bg-blue-100 hover:text-sky-700 transition"
           >
             View Details
           </Link>

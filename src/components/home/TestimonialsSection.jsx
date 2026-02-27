@@ -39,7 +39,7 @@ const TestimonialsSection = () => {
   return (
     <section className="py-20">
       <div className="max-w-6xl mx-auto px-4">
-        <h2 className="text-4xl font-bold text-center mb-4 text-green-500">
+        <h2 className="text-4xl font-bold text-center mb-4 text-gray-600">
           What Our Clients Say
         </h2>
         <p className="text-center text-gray-500 mb-12 text-lg">
@@ -49,17 +49,17 @@ const TestimonialsSection = () => {
           {testimonials.map((t, idx) => (
             <div
               key={idx}
-              className="bg-green-50 border-green-200 border-2  shadow-lg p-8 flex flex-col items-center hover:shadow-2xl transition-shadow duration-300"
+              className="bg-gray-50 border-gray-200 border-2  shadow-lg p-8 flex flex-col items-center hover:shadow-2xl transition-shadow duration-300"
             >
               <img
                 src={t.avatar}
                 alt={t.name}
-                className="w-20 h-20 rounded-full object-cover mb-4 border-4 border-green-200 shadow"
+                className="w-20 h-20 rounded-full object-cover mb-4 border-4 border-gray-200 shadow"
               />
               <blockquote className="italic text-gray-700 mb-4 text-center">
                 “{t.quote}”
               </blockquote>
-              <div className="font-semibold text-green-600">{t.name}</div>
+              <div className="font-semibold text-gray-600">{t.name}</div>
               <div className="text-sm text-gray-400">{t.title}</div>
             </div>
           ))}
@@ -68,9 +68,9 @@ const TestimonialsSection = () => {
           {metrics.map((m, idx) => (
             <div
               key={idx}
-              className="bg-green-50 border-green-200 border-2 shadow p-6"
+              className="bg-gray-50 border-gray-200 border-2 shadow p-6"
             >
-              <div className="text-3xl font-extrabold text-green-600 mb-2">
+              <div className="text-3xl text-gray-600 mb-2">
                 {m.value}
               </div>
               <div className="text-gray-500 font-medium">{m.label}</div>

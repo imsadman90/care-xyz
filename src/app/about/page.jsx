@@ -213,7 +213,7 @@ export default function AboutPage() {
 
       {/* Call to Action Section */}
       <section className="max-w-3xl mx-auto px-4">
-        <div className="bg-blue-50 border-2 border-blue-400 rounded-lg shadow p-10 flex flex-col items-center text-sky-700 text-center">
+        <div className="bg-gray-10 border-2 border-gray-400 rounded-lg shadow p-10 flex flex-col items-center text-gray-700 text-center">
           <h3 className="text-2xl font-bold mb-2">
             Join Our Growing Community
           </h3>

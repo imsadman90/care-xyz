@@ -50,8 +50,8 @@ export default function WhyChoose() {
         <div className="text-sm text-sky-600 font-semibold mb-3">
           OUR PROMISE
         </div>
-        <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900">
-          Why Choose Care.xyz?
+        <h2 className="text-3xl sm:text-4xl font-bold text-slate-700">
+          Why Choose Us?
         </h2>
         <p className="mt-3 text-slate-500">
           We provide a safe, reliable, and compassionate environment designed
