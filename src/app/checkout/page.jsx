@@ -15,8 +15,8 @@ const checkOutPage = async () => {
   return (
     <div>
       {/* title  */}
-      <div className="">
-        <h2 className="text-4xl py-4 font-bold border-l-8 border-purple-500 pl-8">
+      <div className="mt-20">
+        <h2 className="text-4xl py-4 font-bold border-l-8 border-blue-500 pl-8">
           Check Out Page
         </h2>
       </div>
@@ -28,9 +28,9 @@ const checkOutPage = async () => {
             </h2>
             <Link
               href={"/services"}
-              className="btn btn-primary btn-lg btn-wide"
+              className="btn bg-blue-50 border-2 border-blue-400 btn-lg rounded-full"
             >
-              <TbHorseToy></TbHorseToy> See Services
+              See Services
             </Link>
           </div>
         </>

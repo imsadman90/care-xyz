@@ -70,7 +70,7 @@ const CheckOut = ({ cartItems = [] }) => {
   }
 
   return (
-    <div className="min-h-screen bg-[#f7fafd] py-8">
+    <div className="min-h-screen  py-8">
       {/* Stepper */}
       <div className="max-w-3xl mx-auto mb-8">
         <div className="flex items-center justify-between">

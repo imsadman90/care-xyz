@@ -49,7 +49,7 @@ const TestimonialsSection = () => {
           {testimonials.map((t, idx) => (
             <div
               key={idx}
-              className="bg-green-50 border-green-200 border-2 rounded-tr-3xl shadow-lg p-8 flex flex-col items-center hover:shadow-2xl transition-shadow duration-300"
+              className="bg-green-50 border-green-200 border-2  shadow-lg p-8 flex flex-col items-center hover:shadow-2xl transition-shadow duration-300"
             >
               <img
                 src={t.avatar}
@@ -66,7 +66,10 @@ const TestimonialsSection = () => {
         </div>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
           {metrics.map((m, idx) => (
-            <div key={idx} className="bg-green-50 border-green-200 border-2 rounded-bl-3xl shadow p-6">
+            <div
+              key={idx}
+              className="bg-green-50 border-green-200 border-2 shadow p-6"
+            >
               <div className="text-3xl font-extrabold text-green-600 mb-2">
                 {m.value}
               </div>

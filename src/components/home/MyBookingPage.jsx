@@ -142,7 +142,7 @@ const MyBookingPage = () => {
     return null;
   }
   return (
-    <div className="min-h-screen bg-[#f7fafd] py-10 px-2 sm:px-6 lg:px-8">
+    <div className="min-h-screen  pt-25 px-2 sm:px-6 lg:px-8">
       {/* Order Details Modal */}
       {showModal && selectedOrder && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 bg-opacity-40">

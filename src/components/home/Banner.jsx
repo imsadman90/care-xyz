@@ -2,7 +2,7 @@ import React from "react";
 
 const Banner = () => {
   return (
-    <section className="w-full bg-gradient-to-br from-[#f7fafd] to-[#f3f6fb] py-16 px-2 md:px-0">
+    <section className="w-full bg-gradient-to-br from-[#f7fafd] to-[#f3f6fb] py-16 mt-14 px-2 md:px-0">
       <div className="max-w-7xl px-10 mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
         {/* Left: Text content */}
         <div className="flex-1 max-w-xl md:pr-8 text-center md:text-left">
@@ -40,7 +40,7 @@ const Banner = () => {
               className="rounded-2xl object-cover w-[320px] h-[320px] md:w-[380px] md:h-[380px] lg:w-[420px] lg:h-[420px]"
             />
             {/* Badge */}
-            <div className="absolute bottom-4 left-4 bg-white rounded-xl shadow flex items-center gap-2 px-4 py-2 border border-gray-100">
+            <div className="absolute -bottom-5 -left-4 bg-white rounded-xl shadow flex items-center gap-2 px-4 py-2 border border-gray-100">
               <span className="inline-flex items-center justify-center w-6 h-6 bg-green-100 rounded-full">
                 <svg width="16" height="16" fill="none" viewBox="0 0 16 16">
                   <path

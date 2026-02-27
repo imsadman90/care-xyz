@@ -5,7 +5,7 @@ import { FaSearch, FaUserNurse, FaChild, FaNotesMedical } from "react-icons/fa";
 
 const error = () => {
   return (
-    <div className="min-h-screen flex flex-col justify-center items-center bg-[#f7fafd] px-2 py-8">
+    <div className="min-h-screen flex flex-col justify-center items-center  px-2 py-8">
       {/* Card with icon */}
       <div
         className="bg-white rounded-3xl shadow-lg p-8 flex flex-col items-center mb-6"

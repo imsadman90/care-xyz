@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useSession } from "next-auth/react";
 import Logo from "./Logo";
 import NavLink from "../buttons/NavLink";
@@ -8,8 +8,37 @@ import AuthButtons from "../buttons/AuthButtons";
 const Navbar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { data: session } = useSession();
+  const [isVisible, setIsVisible] = useState(true);
+  const lastScrollY = useRef(0);
+  const scrollUpDistance = useRef(0);
 
   const closeMenu = () => setMobileMenuOpen(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      const diff = currentScrollY - lastScrollY.current;
+
+      if (currentScrollY < 10) {
+        setIsVisible(true);
+        scrollUpDistance.current = 0;
+      } else if (diff < 0) {
+        scrollUpDistance.current += Math.abs(diff);
+        if (scrollUpDistance.current > 50) {
+          setIsVisible(true);
+        }
+      } else if (diff > 5) {
+        setIsVisible(false);
+        setMobileMenuOpen(false);
+        scrollUpDistance.current = 0;
+      }
+
+      lastScrollY.current = currentScrollY;
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const NavLinks = ({ onClose }) => (
     <>
@@ -44,7 +73,11 @@ const Navbar = () => {
   );
 
   return (
-    <header className="sticky top-0 z-50 w-full bg-white border-b border-gray-200 shadow-sm">
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 w-full bg-white border-b border-gray-200 shadow-sm transition-transform duration-300 ease-in-out ${
+        isVisible ? "translate-y-0" : "-translate-y-full"
+      }`}
+    >
       <nav className="max-w-7xl mx-auto px-4 sm:px-8">
         <div className="flex h-20 items-center justify-between">
           <div className="flex items-center gap-2">

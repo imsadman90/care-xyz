@@ -27,7 +27,7 @@ export default function Pagination({ total, page, setPage, pageSize = 9 }) {
   return (
     <div className="flex justify-center items-center gap-2 mt-8 select-none">
       <button
-        className="px-3 py-1 rounded border text-gray-600 disabled:opacity-50"
+        className="px-3 py-1 rounded-full border text-gray-600 disabled:opacity-50"
         onClick={() => setPage(page - 1)}
         disabled={page === 1}
       >
@@ -41,7 +41,7 @@ export default function Pagination({ total, page, setPage, pageSize = 9 }) {
         ) : (
           <button
             key={p}
-            className={`px-3 py-1 rounded border ${p === page ? "bg-blue-600 text-white border-blue-600" : "text-gray-700"}`}
+            className={`px-3 py-1 rounded-md border ${p === page ? "bg-blue-50 text-blue-600 border-blue-400 border-2" : "text-gray-700"}`}
             onClick={() => setPage(p)}
             disabled={p === page}
           >
@@ -50,7 +50,7 @@ export default function Pagination({ total, page, setPage, pageSize = 9 }) {
         ),
       )}
       <button
-        className="px-3 py-1 rounded border text-gray-600 disabled:opacity-50"
+        className="px-3 py-1 rounded-full border text-gray-600 disabled:opacity-50"
         onClick={() => setPage(page + 1)}
         disabled={page === totalPages}
       >

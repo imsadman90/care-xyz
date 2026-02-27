@@ -9,7 +9,7 @@ const Loading = () => {
   }, []);
   if (!show) return null;
   return (
-    <div className="flex flex-col min-h-screen justify-center items-center gap-8 bg-gradient-to-br from-purple-50 to-white">
+    <div className="flex flex-col min-h-screen justify-center items-center gap-8 bg-gradient-to-br from-blue-50 to-white">
       <div className="flex flex-col items-center gap-4">
         <span className="relative flex h-70 w-70">
           <span className="absolute inline-flex h-full w-full rounded-full bg-blue-200 opacity-75 animate-ping"></span>

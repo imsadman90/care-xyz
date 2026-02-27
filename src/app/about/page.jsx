@@ -4,7 +4,7 @@ import { FiEye, FiLock, FiUsers } from "react-icons/fi";
 import { HiOutlineLightBulb } from "react-icons/hi";
 export default function AboutPage() {
   return (
-    <main className="bg-[#f8fafc] pb-16">
+    <main className="bg-[#f8fafc] pb-16 mt-14">
       {/* Hero Section */}
       <section className="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-10 px-4 pt-12 pb-8">
         <div className="flex-1">
@@ -213,7 +213,7 @@ export default function AboutPage() {
 
       {/* Call to Action Section */}
       <section className="max-w-3xl mx-auto px-4">
-        <div className="bg-blue-50 border-2 border-blue-400 rounded-se-3xl shadow p-10 flex flex-col items-center text-blue-700 text-center">
+        <div className="bg-blue-50 border-2 border-blue-400 rounded-lg shadow p-10 flex flex-col items-center text-blue-700 text-center">
           <h3 className="text-2xl font-bold mb-2">
             Join Our Growing Community
           </h3>
@@ -221,18 +221,12 @@ export default function AboutPage() {
             Whether you’re looking for care or looking to provide it, we’re here
             for you. Start your journey with Care.xyz today.
           </p>
-          <div className=" flex flex-col md:flex-row gap-4">
+          <div className="">
             <a
               href="/services"
               className="btn bg-blue-400 hover:bg-blue-500 text-white font-semibold px-6 py-2 shadow border-none rounded-full"
             >
               Find Care
-            </a>
-            <a
-              href="/register"
-              className="btn bg-green-50 border-green-400 border-2 shadow-none text-green-500 font-semibold px-6 py-2 rounded-full"
-            >
-              Become a Caregiver
             </a>
           </div>
         </div>

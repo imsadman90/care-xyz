@@ -59,7 +59,7 @@ const ServiceDetails = async ({ params }) => {
   const discountedPrice = price - (price * discount) / 100;
 
   return (
-    <div className="min-h-screen bg-[#f7fafd] py-8">
+    <div className="pt-25">
       <div className="max-w-7xl mx-auto px-4">
         {/* Top Section: Image + Info */}
         <div className="flex flex-col lg:flex-row gap-10 items-start mb-12">
