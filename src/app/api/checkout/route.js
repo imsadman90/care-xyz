@@ -41,7 +41,6 @@ export async function POST(request) {
       amount: session.amount_total
         ? session.amount_total / 100
         : orderData.amount,
-      // status is always set to 'unpaid' in createOrder
     });
 
     return NextResponse.json({ url: session.url });

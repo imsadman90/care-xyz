@@ -8,7 +8,6 @@ export const PATCH = async (request, { params }) => {
 
   try {
     const collection = dbConnect(collections.ORDER);
-    // Only allow status update to 'paid' (or other allowed values)
     if (
       body.status === "paid" ||
       body.status === "unpaid" ||
@@ -28,6 +27,31 @@ export const PATCH = async (request, { params }) => {
   } catch (error) {
     return NextResponse.json(
       { error: "Failed to update order" },
+      { status: 500 },
+    );
+  }
+};
+
+// ✅ DELETE handler — permanently removes the order from MongoDB
+export const DELETE = async (request, { params }) => {
+  const { id } = await params;
+
+  try {
+    const collection = dbConnect(collections.ORDER);
+
+    const result = await collection.deleteOne({ _id: new ObjectId(id) });
+
+    if (result.deletedCount === 0) {
+      return NextResponse.json({ error: "Order not found" }, { status: 404 });
+    }
+
+    return NextResponse.json({
+      success: true,
+      message: "Order deleted successfully",
+    });
+  } catch (error) {
+    return NextResponse.json(
+      { error: "Failed to delete order" },
       { status: 500 },
     );
   }

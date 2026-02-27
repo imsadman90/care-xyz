@@ -65,6 +65,11 @@ const Navbar = () => {
         </li>
       )}
       <li>
+        <NavLink href={"/contact"} onClick={onClose}>
+          Contact
+        </NavLink>
+      </li>
+      <li>
         <NavLink href={"/admin-dashboard"} onClick={onClose}>
           Admin Dashboard
         </NavLink>

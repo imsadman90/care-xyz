@@ -12,17 +12,12 @@ const MyBookingPage = () => {
   const { data: session, status } = useSession();
   const router = useRouter();
 
-  // Modal state
   const [selectedOrder, setSelectedOrder] = useState(null);
   const [showModal, setShowModal] = useState(false);
-
   const [orders, setOrders] = useState([]);
   const [loading, setLoading] = useState(true);
-
-  // Filter state for status tabs
   const [filter, setFilter] = useState("All");
 
-  // Redirect to login if not authenticated
   useEffect(() => {
     if (status === "unauthenticated") {
       router.replace("/login");
@@ -57,10 +52,11 @@ const MyBookingPage = () => {
     fetchOrders();
   }, [session]);
 
+  // ✅ DELETE — MongoDB + UI দুইটা থেকেই remove হবে
   const handleCancel = async (orderId) => {
     const result = await Swal.fire({
       title: "Cancel Booking?",
-      text: "Are you sure you want to cancel this booking?",
+      text: "Are you sure you want to cancel this booking? It will be permanently removed.",
       icon: "warning",
       showCancelButton: true,
       confirmButtonColor: "#d33",
@@ -70,17 +66,19 @@ const MyBookingPage = () => {
 
     if (result.isConfirmed) {
       try {
-        await fetch(`/api/orders/${orderId}`, {
-          method: "PATCH",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ status: "Cancelled" }),
+        const res = await fetch(`/api/orders/${orderId}`, {
+          method: "DELETE",
         });
-        setOrders((prev) =>
-          prev.map((o) =>
-            o._id === orderId ? { ...o, status: "Cancelled" } : o,
-          ),
+
+        if (!res.ok) throw new Error("Failed to delete");
+
+        setOrders((prev) => prev.filter((o) => o._id !== orderId));
+
+        Swal.fire(
+          "Removed!",
+          "Your booking has been permanently removed.",
+          "success",
         );
-        Swal.fire("Cancelled!", "Your booking has been cancelled.", "success");
       } catch (err) {
         Swal.fire("Error", "Failed to cancel booking.", "error");
       }
@@ -141,8 +139,9 @@ const MyBookingPage = () => {
   if (status === "unauthenticated") {
     return null;
   }
+
   return (
-    <div className="min-h-screen  pt-25 px-2 sm:px-6 lg:px-8">
+    <div className="min-h-screen pt-25 px-2 sm:px-6 lg:px-8">
       {/* Order Details Modal */}
       {showModal && selectedOrder && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 bg-opacity-40">
@@ -183,6 +182,7 @@ const MyBookingPage = () => {
           </div>
         </div>
       )}
+
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-6 gap-4">
           <div>
@@ -265,7 +265,7 @@ const MyBookingPage = () => {
                         </div>
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap text-gray-700 font-medium">
-                        {order.duration}{" "}
+                        {order.duration}
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap text-gray-700">
                         {order.location
@@ -290,7 +290,9 @@ const MyBookingPage = () => {
                           >
                             View
                           </button>
-                          {order.status !== "Cancelled" &&
+
+                          {order.status === "unpaid" &&
+                            order.status !== "Cancelled" &&
                             order.status !== "Completed" && (
                               <button
                                 onClick={() => handleCancel(order._id)}
