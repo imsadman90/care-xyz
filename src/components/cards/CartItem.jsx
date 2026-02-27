@@ -96,13 +96,13 @@ const CartItem = ({ item, removeItem, updateQuantity }) => {
         </h3>
         <p className="text-xs text-gray-500 mb-2">
           Unit Price:{" "}
-          <span className="font-medium text-blue-700">Taka : {price}</span>
+          <span className="font-medium text-sky-700">Taka : {price}</span>
         </p>
 
         {/* Quantity controls */}
         <div className="flex items-center gap-2 mt-1">
           <button
-            className="btn btn-xs btn-outline border-purple-300 text-blue-700 hover:bg-blue-100"
+            className="btn btn-xs btn-outline border-purple-300 text-sky-700 hover:bg-blue-100"
             onClick={onDecrease}
             disabled={quantity === 1 || loading}
             aria-label="Decrease quantity"
@@ -115,7 +115,7 @@ const CartItem = ({ item, removeItem, updateQuantity }) => {
           </span>
 
           <button
-            className="btn btn-xs btn-outline border-purple-300 text-blue-700 hover:bg-blue-100"
+            className="btn btn-xs btn-outline border-purple-300 text-sky-700 hover:bg-blue-100"
             disabled={quantity === 10 || loading}
             onClick={onIncrease}
             aria-label="Increase quantity"
@@ -127,7 +127,7 @@ const CartItem = ({ item, removeItem, updateQuantity }) => {
 
       {/* Total + Remove */}
       <div className="text-right space-y-3 min-w-[90px]">
-        <p className="font-bold text-lg text-blue-800">
+        <p className="font-bold text-lg text-sky-700">
           Taka : {price * quantity}
         </p>
 

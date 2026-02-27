@@ -53,7 +53,7 @@ const LoginForm = () => {
               size={48}
               className="animate-spin text-blue-600"
             />
-            <h2 className="text-xl font-semibold text-blue-700 animate-pulse">
+            <h2 className="text-xl font-semibold text-sky-700 animate-pulse">
               Processing Login...
             </h2>
           </div>

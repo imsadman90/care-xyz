@@ -78,7 +78,7 @@ const CheckOut = ({ cartItems = [] }) => {
             <div className="w-8 h-8 rounded-full bg-blue-600 text-white flex items-center justify-center font-bold text-lg">
               1
             </div>
-            <span className="mt-2 text-blue-700 font-semibold">Duration</span>
+            <span className="mt-2 text-sky-700 font-semibold">Duration</span>
           </div>
           <div className="flex-1 h-1 bg-blue-100 mx-2 relative">
             <div
@@ -87,10 +87,10 @@ const CheckOut = ({ cartItems = [] }) => {
             />
           </div>
           <div className="flex flex-col items-center flex-1">
-            <div className="w-8 h-8 rounded-full bg-white border-2 border-blue-200 text-blue-500 flex items-center justify-center font-bold text-lg">
+            <div className="w-8 h-8 rounded-full bg-white border-2 border-blue-200 text-sky-500 flex items-center justify-center font-bold text-lg">
               2
             </div>
-            <span className="mt-2 text-blue-700 font-semibold">Location</span>
+            <span className="mt-2 text-sky-700 font-semibold">Location</span>
           </div>
           <div className="flex-1 h-1 bg-blue-100 mx-2 relative">
             <div
@@ -99,10 +99,10 @@ const CheckOut = ({ cartItems = [] }) => {
             />
           </div>
           <div className="flex flex-col items-center flex-1">
-            <div className="w-8 h-8 rounded-full bg-white border-2 border-blue-200 text-blue-500 flex items-center justify-center font-bold text-lg">
+            <div className="w-8 h-8 rounded-full bg-white border-2 border-blue-200 text-sky-500 flex items-center justify-center font-bold text-lg">
               3
             </div>
-            <span className="mt-2 text-blue-700 font-semibold">Summary</span>
+            <span className="mt-2 text-sky-700 font-semibold">Summary</span>
           </div>
         </div>
       </div>
@@ -178,7 +178,7 @@ const CheckOut = ({ cartItems = [] }) => {
             <span className="font-medium text-blue-900">
               Estimated Total Cost
             </span>
-            <span className="ml-auto font-bold text-blue-700 text-lg">
+            <span className="ml-auto font-bold text-sky-700 text-lg">
               Estimated: ${totalPrice.toLocaleString()}
             </span>
           </div>

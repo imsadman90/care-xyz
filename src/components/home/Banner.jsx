@@ -6,7 +6,7 @@ const Banner = () => {
       <div className="max-w-7xl px-10 mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
         {/* Left: Text content */}
         <div className="flex-1 max-w-xl md:pr-8 text-center md:text-left">
-          <span className="inline-block mb-4 px-4 py-1 rounded-full bg-blue-100 text-blue-700 text-xs font-semibold tracking-wide">
+          <span className="inline-block mb-4 px-4 py-1 rounded-full bg-blue-100 text-sky-700 text-xs font-semibold tracking-wide">
             TRUSTED BY 500+ FAMILIES
           </span>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 leading-tight mb-4">

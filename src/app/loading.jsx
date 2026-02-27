@@ -14,7 +14,7 @@ const Loading = () => {
         <span className="relative flex h-70 w-70">
           <span className="absolute inline-flex h-full w-full rounded-full bg-blue-200 opacity-75 animate-ping"></span>
         </span>
-        <h2 className="text-5xl font-extrabold text-blue-700 animate-pulse tracking-wide">
+        <h2 className="text-5xl font-extrabold text-sky-700 animate-pulse tracking-wide">
           Loading...
         </h2>
         <p className="text-gray-400 text-sm">

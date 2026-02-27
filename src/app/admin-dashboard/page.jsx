@@ -57,8 +57,8 @@ export default function AdminDashboardPage() {
   ];
 
   const navItems = [
-    { id: "dashboard", label: "Dashboard",  count: null },
-    { id: "bookings", label: "All Bookings",  count: orders.length },
+    { id: "dashboard", label: "Dashboard", count: null },
+    { id: "bookings", label: "All Bookings", count: orders.length },
     { id: "users", label: "Users", count: users.length },
   ];
 
@@ -111,7 +111,6 @@ export default function AdminDashboardPage() {
           `}
         >
           <div>
-
             {/* Nav */}
             <p className="text-xs text-gray-400 font-semibold uppercase tracking-wider mb-3 px-1">
               Main Menu
@@ -358,7 +357,7 @@ export default function AdminDashboardPage() {
                       key={user._id?.toString()}
                       className="flex items-center gap-3 px-5 py-4 hover:bg-gray-50 transition-colors"
                     >
-                      <div className="w-9 h-9 rounded-full bg-blue-100 flex items-center justify-center text-blue-700 font-bold text-sm flex-shrink-0">
+                      <div className="w-9 h-9 rounded-full bg-blue-100 flex items-center justify-center text-sky-700 font-bold text-sm flex-shrink-0">
                         {(user.name || user.email || "?")[0].toUpperCase()}
                       </div>
                       <div className="min-w-0">

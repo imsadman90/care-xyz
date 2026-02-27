@@ -8,7 +8,7 @@ export default function AboutPage() {
       {/* Hero Section */}
       <section className="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-10 px-4 pt-12 pb-8">
         <div className="flex-1">
-          <span className="inline-block bg-blue-100 text-blue-700 px-4 py-1 rounded-full text-xs font-semibold mb-4">
+          <span className="inline-block bg-blue-100 text-sky-700 px-4 py-1 rounded-full text-xs font-semibold mb-4">
             About Us
           </span>
           <h1 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4 leading-tight">
@@ -134,13 +134,13 @@ export default function AboutPage() {
             caregivers who don’t just “do the job,” but become extensions of
             their families. Every feature we build is designed with one question
             in mind:{" "}
-            <span className="italic text-blue-700">
+            <span className="italic text-sky-700">
               “Would I trust this for my own loved ones?”
             </span>
           </p>
           <div className="flex gap-8 mt-6">
             <div>
-              <span className="text-2xl font-bold text-blue-700">10k+</span>
+              <span className="text-2xl font-bold text-sky-700">10k+</span>
               <div className="text-xs text-gray-500">FAMILIES SERVED</div>
             </div>
             <div>
@@ -213,7 +213,7 @@ export default function AboutPage() {
 
       {/* Call to Action Section */}
       <section className="max-w-3xl mx-auto px-4">
-        <div className="bg-blue-50 border-2 border-blue-400 rounded-lg shadow p-10 flex flex-col items-center text-blue-700 text-center">
+        <div className="bg-blue-50 border-2 border-blue-400 rounded-lg shadow p-10 flex flex-col items-center text-sky-700 text-center">
           <h3 className="text-2xl font-bold mb-2">
             Join Our Growing Community
           </h3>

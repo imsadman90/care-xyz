@@ -200,7 +200,7 @@ const ServiceDetails = async ({ params }) => {
                       key={idx}
                       className="bg-gray-50 rounded-xl p-4 border border-gray-200"
                     >
-                      <div className="font-semibold text-blue-700 mb-1">
+                      <div className="font-semibold text-sky-700 mb-1">
                         Q: {qa.question}
                       </div>
                       <div className="text-gray-700">A: {qa.answer}</div>
@@ -268,7 +268,7 @@ const ServiceDetails = async ({ params }) => {
             <li>
               <span className="font-bold">Background Verification</span>
               <br />
-              <span className="text-blue-800 text-sm">
+              <span className="text-sky-700 text-sm">
                 Every caregiver passes a multi-state criminal background check
                 and sex offender registry search.
               </span>
@@ -276,7 +276,7 @@ const ServiceDetails = async ({ params }) => {
             <li>
               <span className="font-bold">Certification Check</span>
               <br />
-              <span className="text-blue-800 text-sm">
+              <span className="text-sky-700 text-sm">
                 We verify all certifications including CPR, First Aid, and early
                 education degrees.
               </span>
@@ -284,7 +284,7 @@ const ServiceDetails = async ({ params }) => {
             <li>
               <span className="font-bold">Insurance Coverage</span>
               <br />
-              <span className="text-blue-800 text-sm">
+              <span className="text-sky-700 text-sm">
                 All bookings through Care.xyz are protected by our $1M liability
                 insurance policy.
               </span>

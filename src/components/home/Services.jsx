@@ -35,7 +35,7 @@ export default function ServicesWrapper() {
   return (
     <div>
       <h2 className="text-center text-6xl font-bold mb-10">
-        Our <span className="text-blue-600">Services</span>
+        Our <span className="text-sky-600">Services</span>
       </h2>
       {loading ? (
         <div className="text-center py-20 text-lg text-gray-400">

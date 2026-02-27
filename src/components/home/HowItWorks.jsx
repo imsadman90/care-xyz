@@ -12,11 +12,11 @@ export default function HowItWorks() {
   return (
     <section className="bg-white py-20 px-2">
       <div className="max-w-5xl mx-auto flex flex-col items-center">
-        <span className="bg-blue-50 text-blue-700 px-4 py-1 rounded-full text-xs font-semibold mb-4">
+        <span className="bg-blue-50 text-sky-700 px-4 py-1 rounded-full text-xs font-semibold mb-4">
           SEAMLESS SUPPORT
         </span>
-        <h2 className="text-4xl md:text-5xl font-bold text-center mb-3 text-blue-600">
-          HOW CARE.xyz WORKS
+        <h2 className="text-4xl md:text-5xl font-bold text-center mb-3 text-sky-700">
+          HOW IT WORKS
         </h2>
         <p className="text-gray-600 text-center mb-8 max-w-2xl">
           Providing peace of mind for your family through a simple, vetted
@@ -103,9 +103,9 @@ export default function HowItWorks() {
               screening before joining our community.
             </p>
             <ul className="text-gray-700 text-sm space-y-1 mb-2">
-              <li>✔️ Comprehensive background checks</li>
-              <li>✔️ Identity and certification verification</li>
-              <li>✔️ 24/7 dedicated safety support team</li>
+              <li>Comprehensive background checks</li>
+              <li>Identity and certification verification</li>
+              <li>24/7 dedicated safety support team</li>
             </ul>
           </div>
           <div className="flex-1 grid grid-cols-2 gap-4">
@@ -123,7 +123,10 @@ export default function HowItWorks() {
             </div>
             <div className="bg-white rounded-xl p-4 flex flex-col items-center shadow">
               <FaRegHeart className="text-3xl text-green-600 mb-1" />
-              <div className="font-semibold">Satisfaction Guaranteed</div>
+              <div className="font-semibold">
+                Satisfaction <br />
+                Guaranteed
+              </div>
             </div>
           </div>
         </div>

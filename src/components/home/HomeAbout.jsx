@@ -7,7 +7,7 @@ export default function HomeAbout() {
   return (
     <section className="max-w-5xl mx-auto px-4 py-16 flex flex-col md:flex-row items-center gap-10">
       <div className="flex-1">
-        <span className="inline-block bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-xs font-semibold mb-3">
+        <span className="inline-block bg-blue-100 text-sky-700 px-3 py-1 rounded-full text-xs font-semibold mb-3">
           About Care.xyz
         </span>
         <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-3">

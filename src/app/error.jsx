@@ -13,7 +13,7 @@ const error = () => {
       >
         <div className="w-28 h-28 rounded-2xl bg-blue-50 flex items-center justify-center mb-4">
           <span className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-blue-100">
-            <FaSearch className="text-blue-500 text-4xl" />
+            <FaSearch className="text-sky-500 text-4xl" />
           </span>
         </div>
         <h1 className="text-4xl font-extrabold text-gray-900 mb-2 text-center">
@@ -42,7 +42,7 @@ const error = () => {
       <div className="flex gap-12 mt-6">
         <div className="flex flex-col items-center gap-2">
           <span className="w-12 h-12 rounded-full bg-blue-50 flex items-center justify-center">
-            <FaUserNurse className="text-blue-500 text-2xl" />
+            <FaUserNurse className="text-sky-500 text-2xl" />
           </span>
           <span className="text-sm font-semibold text-gray-700">
             Senior Care
@@ -50,7 +50,7 @@ const error = () => {
         </div>
         <div className="flex flex-col items-center gap-2">
           <span className="w-12 h-12 rounded-full bg-blue-50 flex items-center justify-center">
-            <FaChild className="text-blue-500 text-2xl" />
+            <FaChild className="text-sky-500 text-2xl" />
           </span>
           <span className="text-sm font-semibold text-gray-700">
             Child Care
@@ -58,7 +58,7 @@ const error = () => {
         </div>
         <div className="flex flex-col items-center gap-2">
           <span className="w-12 h-12 rounded-full bg-blue-50 flex items-center justify-center">
-            <FaNotesMedical className="text-blue-500 text-2xl" />
+            <FaNotesMedical className="text-sky-500 text-2xl" />
           </span>
           <span className="text-sm font-semibold text-gray-700">
             Special Needs

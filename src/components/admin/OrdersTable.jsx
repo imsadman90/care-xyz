@@ -125,8 +125,8 @@ export default function OrdersTable({ orders, onAction }) {
             </p>
 
             {order.adminFeedback && (
-              <div className="bg-blue-50 border border-blue-100 rounded-lg px-3 py-2 text-xs text-blue-700 mb-3">
-               {order.adminFeedback}
+              <div className="bg-blue-50 border border-blue-100 rounded-lg px-3 py-2 text-xs text-sky-700 mb-3">
+                {order.adminFeedback}
               </div>
             )}
 
@@ -149,7 +149,7 @@ export default function OrdersTable({ orders, onAction }) {
                 onClick={() => onAction(order._id, "feedback")}
                 className="flex-1 py-2 bg-blue-500 text-white rounded-lg text-xs font-semibold hover:bg-blue-600 transition-colors"
               >
-               Note
+                Note
               </button>
             </div>
           </div>
