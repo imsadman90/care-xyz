@@ -21,6 +21,6 @@ This repository contains configuration that requires secrets (database URIs, SMT
 - `MONGODB_URI`
 - `EMAIL_USER` and `EMAIL_PASS` (use an App Password for Gmail)
 - `NEXTAUTH_SECRET`, `GOOGLE_CLIENT_ID`, `GOOGLE_CLIENT_SECRET`
-- `STRIPE_SECRET_KEY`
+- `STRIPE_SECRET_KEY`s
 
 If you plan to deploy publicly (for example on Vercel), set these variables in the hosting provider's environment settings rather than committing them to source control.

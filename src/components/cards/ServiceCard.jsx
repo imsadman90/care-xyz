@@ -1,7 +1,5 @@
 "use client";
 import Link from "next/link";
-import { FaStar } from "react-icons/fa";
-import CartButton from "../buttons/CartButtons";
 
 const ServiceCard = ({ service }) => {
   const {
