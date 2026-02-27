@@ -21,7 +21,7 @@ const Banner = () => {
             services easily with our vetted team of experts.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
-            <button className="px-6 py-3 rounded-full bg-blue-50 border-blue-400 border-2 text-blue-600 font-semibold shadow">
+            <button className="px-6 py-3 rounded-full bg-blue-50 border-blue-400 border-2 text-sky-600 font-semibold shadow">
               Explore Services
             </button>
             <button className="px-6 py-3 rounded-full border-green-400 text-green-600 font-semibold bg-green-50 border-2">

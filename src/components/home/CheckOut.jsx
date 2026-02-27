@@ -140,7 +140,7 @@ const CheckOut = ({ cartItems = [] }) => {
             <div className="flex items-center gap-2">
               <button
                 type="button"
-                className="w-10 h-10 rounded-full border border-gray-300 flex items-center justify-center text-2xl font-bold text-blue-600 bg-white"
+                className="w-10 h-10 rounded-full border border-gray-300 flex items-center justify-center text-2xl font-bold text-sky-600 bg-white"
                 onClick={() => setDurationValue(Math.max(1, durationValue - 1))}
               >
                 -
@@ -154,7 +154,7 @@ const CheckOut = ({ cartItems = [] }) => {
               />
               <button
                 type="button"
-                className="w-10 h-10 rounded-full border border-gray-300 flex items-center justify-center text-2xl font-bold text-blue-600 bg-white"
+                className="w-10 h-10 rounded-full border border-gray-300 flex items-center justify-center text-2xl font-bold text-sky-600 bg-white"
                 onClick={() => setDurationValue(durationValue + 1)}
               >
                 +
@@ -163,7 +163,7 @@ const CheckOut = ({ cartItems = [] }) => {
           </div>
           <div className="bg-blue-50 rounded-xl flex items-center gap-3 px-4 py-3 mt-4">
             <svg
-              className="w-6 h-6 text-blue-400"
+              className="w-6 h-6 text-sky-400"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"

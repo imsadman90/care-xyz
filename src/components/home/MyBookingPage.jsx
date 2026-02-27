@@ -186,7 +186,7 @@ const MyBookingPage = () => {
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-6 gap-4">
           <div>
-            <h2 className="text-4xl font-extrabold text-blue-600 mb-1">
+            <h2 className="text-4xl font-extrabold text-sky-600 mb-1">
               My Bookings
             </h2>
             <p className="text-gray-500 text-base">
@@ -195,7 +195,7 @@ const MyBookingPage = () => {
           </div>
           <Link
             href="/services"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-blue-50 border-blue-400 border-2 text-blue-600 font-semibold shadow hover:bg-blue-100 transition text-lg"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-blue-50 border-blue-400 border-2 text-sky-600 font-semibold shadow hover:bg-blue-100 transition text-lg"
           >
             <span className="text-2xl font-bold">+</span> Book New Service
           </Link>
@@ -286,7 +286,7 @@ const MyBookingPage = () => {
                               setSelectedOrder(order);
                               setShowModal(true);
                             }}
-                            className="px-3 py-1 text-xs rounded-full bg-blue-50 text-blue-600 border border-blue-200 hover:bg-blue-100 transition font-semibold"
+                            className="px-3 py-1 text-xs rounded-full bg-blue-50 text-sky-600 border border-blue-200 hover:bg-blue-100 transition font-semibold"
                           >
                             View
                           </button>

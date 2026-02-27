@@ -20,7 +20,7 @@ export default function HomeAbout() {
         </p>
         <div className="flex gap-6 mt-4">
           <div className="flex items-center gap-2">
-            <FaRegHeart className="text-xl text-blue-600" />
+            <FaRegHeart className="text-xl text-sky-600" />
             <span className="text-sm font-medium text-gray-700">
               Personalized Support
             </span>

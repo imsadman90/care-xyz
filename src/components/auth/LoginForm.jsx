@@ -49,10 +49,7 @@ const LoginForm = () => {
       {loading && (
         <div className="fixed inset-0 z-30 flex items-center justify-center bg-white/70 backdrop-blur-sm">
           <div className="flex flex-col items-center gap-4">
-            <AiOutlineLoading
-              size={48}
-              className="animate-spin text-blue-600"
-            />
+            <AiOutlineLoading size={48} className="animate-spin text-sky-600" />
             <h2 className="text-xl font-semibold text-sky-700 animate-pulse">
               Processing Login...
             </h2>
@@ -127,7 +124,7 @@ const LoginForm = () => {
             <button
               disabled={loading}
               type="submit"
-              className="btn w-full bg-blue-50 hover:bg-blue-100 border-blue-400 border-2 text-blue-600 font-semibold text-lg rounded-lg shadow transition-all flex items-center justify-center gap-2"
+              className="btn w-full bg-blue-50 hover:bg-blue-100 border-blue-400 border-2 text-sky-600 font-semibold text-lg rounded-lg shadow transition-all flex items-center justify-center gap-2"
             >
               Login <span className="text-xl">→</span>
             </button>
@@ -142,7 +139,7 @@ const LoginForm = () => {
             Don’t have an account?{" "}
             <Link
               href={`/register?callbackUrl=${callback}`}
-              className="text-blue-600 hover:underline font-medium"
+              className="text-sky-600 hover:underline font-medium"
             >
               Register
             </Link>

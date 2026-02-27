@@ -31,7 +31,7 @@ const Error404 = () => {
           </Link>
           <Link
             href="/contact"
-            className="px-6 py-3 rounded-xl bg-white border border-blue-600 text-blue-600 font-semibold text-base shadow hover:bg-blue-50 transition text-center"
+            className="px-6 py-3 rounded-xl bg-white border border-blue-600 text-sky-600 font-semibold text-base shadow hover:bg-blue-50 transition text-center"
           >
             Contact Support
           </Link>

@@ -139,19 +139,19 @@ const ServiceDetails = async ({ params }) => {
             {/* Features Row */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-4">
               <div className="flex  items-center gap-2 text-gray-700 text-sm font-medium">
-                <Ri24HoursFill size={30} className="text-blue-600" />
+                <Ri24HoursFill size={30} className="text-sky-600" />
                 24/7 Availability
               </div>
               <div className="flex items-center gap-2 text-gray-700 text-sm font-medium">
-                <RiFirstAidKitLine size={30} className="text-blue-600" />
+                <RiFirstAidKitLine size={30} className="text-sky-600" />
                 CPR & First Aid Certified
               </div>
               <div className="flex items-center gap-2 text-gray-700 text-sm font-medium">
-                <TbNurse size={30} className="text-blue-600" />
+                <TbNurse size={30} className="text-sky-600" />
                 Vetted Caregivers
               </div>
               <div className="flex items-center gap-2 text-gray-700 text-sm font-medium">
-                <TbFileReport size={30} className="text-blue-600" />
+                <TbFileReport size={30} className="text-sky-600" />
                 Activity Reporting
               </div>
             </div>
@@ -229,7 +229,7 @@ const ServiceDetails = async ({ params }) => {
             </div>
             <div className="flex justify-between text-lg font-bold mb-4">
               <span>Total</span>
-              <span className="text-blue-600">
+              <span className="text-sky-600">
                 ${(price * 1.1).toFixed(2)} / hr
               </span>
             </div>
@@ -243,7 +243,7 @@ const ServiceDetails = async ({ params }) => {
         <div className="bg-blue-50 border border-blue-200 rounded-2xl p-6 mb-8">
           <div className="flex items-center gap-2 mb-2">
             <svg
-              className="w-6 h-6 text-blue-600"
+              className="w-6 h-6 text-sky-600"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"

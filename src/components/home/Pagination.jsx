@@ -41,7 +41,7 @@ export default function Pagination({ total, page, setPage, pageSize = 9 }) {
         ) : (
           <button
             key={p}
-            className={`px-3 py-1 rounded-md border ${p === page ? "bg-blue-50 text-blue-600 border-blue-400 border-2" : "text-gray-700"}`}
+            className={`px-3 py-1 rounded-md border ${p === page ? "bg-blue-50 text-sky-600 border-blue-400 border-2" : "text-gray-700"}`}
             onClick={() => setPage(p)}
             disabled={p === page}
           >

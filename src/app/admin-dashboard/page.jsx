@@ -204,7 +204,7 @@ export default function AdminDashboardPage() {
                   <h2 className="font-bold text-gray-900">Recent Bookings</h2>
                   <button
                     onClick={() => setView("bookings")}
-                    className="text-xs text-blue-600 font-semibold hover:underline"
+                    className="text-xs text-sky-600 font-semibold hover:underline"
                   >
                     View all →
                   </button>

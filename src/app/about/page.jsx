@@ -13,8 +13,7 @@ export default function AboutPage() {
           </span>
           <h1 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4 leading-tight">
             Our Story <br />
-            Providing Care with{" "}
-            <span className="text-blue-600">Compassion</span>
+            Providing Care with <span className="text-sky-600">Compassion</span>
           </h1>
           <p className="text-lg text-gray-700 mb-6 max-w-xl">
             At Care.xyz, we believe everyone deserves high-quality, trustworthy
@@ -48,7 +47,7 @@ export default function AboutPage() {
       {/* Mission & Vision */}
       <section className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 px-4 mb-14">
         <div className="bg-white rounded-xl shadow p-8 flex flex-col items-start">
-          <div className="bg-blue-100 text-blue-600 rounded-full p-2 mb-3">
+          <div className="bg-blue-100 text-sky-600 rounded-full p-2 mb-3">
             <FaRocket className="text-2xl" />
           </div>
           <h3 className="text-xl font-bold mb-2">Our Mission</h3>
@@ -79,7 +78,7 @@ export default function AboutPage() {
         </p>
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
           <div className="bg-white rounded-xl shadow p-6 flex flex-col items-center">
-            <FiLock className="text-2xl mb-2 text-blue-600" />
+            <FiLock className="text-2xl mb-2 text-sky-600" />
             <h4 className="font-semibold mb-1">Trust</h4>
             <p className="text-gray-500 text-sm text-center">
               Rigorous vetting and background checks for complete peace of mind.

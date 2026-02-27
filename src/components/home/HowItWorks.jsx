@@ -37,7 +37,7 @@ export default function HowItWorks() {
             those ready to give it.
           </p>
           <div className="inline-flex gap-2">
-            <button className="px-6 py-2 rounded-full bg-blue-50 border-blue-400 border-2 text-blue-600 font-semibold">
+            <button className="px-6 py-2 rounded-full bg-blue-50 border-blue-400 border-2 text-sky-600 font-semibold">
               For Families
             </button>
             <button className="px-6 py-2 rounded-full bg-green-50 border-green-400 border-2 text-green-600 font-semibold">
@@ -52,7 +52,7 @@ export default function HowItWorks() {
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
             <div className="bg-blue-50 rounded-xl p-6 flex flex-col items-center text-center shadow">
-              <FaUserPlus className="text-3xl text-blue-600 mb-2" />
+              <FaUserPlus className="text-3xl text-sky-600 mb-2" />
               <div className="font-bold mb-1">STEP 01</div>
               <div className="font-semibold mb-1">Create an Account</div>
               <p className="text-gray-500 text-sm">
@@ -61,7 +61,7 @@ export default function HowItWorks() {
               </p>
             </div>
             <div className="bg-blue-50 rounded-xl p-6 flex flex-col items-center text-center shadow">
-              <FaRegCalendarCheck className="text-3xl text-blue-600 mb-2" />
+              <FaRegCalendarCheck className="text-3xl text-sky-600 mb-2" />
               <div className="font-bold mb-1">STEP 02</div>
               <div className="font-semibold mb-1">Book a Service</div>
               <p className="text-gray-500 text-sm">
@@ -70,7 +70,7 @@ export default function HowItWorks() {
               </p>
             </div>
             <div className="bg-blue-50 rounded-xl p-6 flex flex-col items-center text-center shadow">
-              <FaLock className="text-3xl text-blue-600 mb-2" />
+              <FaLock className="text-3xl text-sky-600 mb-2" />
               <div className="font-bold mb-1">STEP 03</div>
               <div className="font-semibold mb-1">Secure Payment</div>
               <p className="text-gray-500 text-sm">
@@ -79,7 +79,7 @@ export default function HowItWorks() {
               </p>
             </div>
             <div className="bg-blue-50 rounded-xl p-6 flex flex-col items-center text-center shadow">
-              <FaRegHeart className="text-3xl text-blue-600 mb-2" />
+              <FaRegHeart className="text-3xl text-sky-600 mb-2" />
               <div className="font-bold mb-1">STEP 04</div>
               <div className="font-semibold mb-1">Quality Care</div>
               <p className="text-gray-500 text-sm">

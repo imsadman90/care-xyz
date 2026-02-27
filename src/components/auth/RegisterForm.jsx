@@ -65,10 +65,7 @@ export const RegisterForm = () => {
       {loading && (
         <div className="fixed inset-0 z-30 flex items-center justify-center bg-white/70 backdrop-blur-sm">
           <div className="flex flex-col items-center gap-4">
-            <AiOutlineLoading
-              size={48}
-              className="animate-spin text-blue-600"
-            />
+            <AiOutlineLoading size={48} className="animate-spin text-sky-600" />
             <h2 className="text-xl font-semibold text-sky-700 animate-pulse">
               Processing Registration...
             </h2>
@@ -254,7 +251,7 @@ export const RegisterForm = () => {
               <button
                 disabled={loading}
                 type="submit"
-                className="btn w-full bg-blue-50 border-blue-400 border-2 hover:bg-blue-100 text-blue-600 font-semibold text-lg py-2 rounded-lg shadow transition-all flex items-center justify-center gap-2"
+                className="btn w-full bg-blue-50 border-blue-400 border-2 hover:bg-blue-100 text-sky-600 font-semibold text-lg py-2 rounded-lg shadow transition-all flex items-center justify-center gap-2"
               >
                 Register <span className="text-xl">→</span>
               </button>
@@ -270,7 +267,7 @@ export const RegisterForm = () => {
             Already have an account?{" "}
             <Link
               href="/login"
-              className="text-blue-600 hover:underline font-medium"
+              className="text-sky-600 hover:underline font-medium"
             >
               Login
             </Link>
